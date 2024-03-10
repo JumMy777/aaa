@@ -1,0 +1,153 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* Nav */
+.bg_header {
+  background: rgb(0, 150, 199);
+  background: rgb(0, 150, 199);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 150, 199, 1) 15%,
+    rgba(76, 181, 216, 1) 30%,
+    rgba(163, 217, 235, 1) 45%,
+    rgba(206, 235, 244, 1) 60%,
+    rgba(255, 255, 255, 1) 75%
+  );
+}
+
+.topbar_bg {
+  background-color: #ffffff;
+}
+
+.search_box {
+  background-color: white;
+  border-radius: 30px;
+  height: 40px;
+  align-items: center;
+  display: flex;
+}
+
+.search_box input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+.search_box img {
+  width: 30px;
+  height: 30px;
+}
+
+.search_input {
+  background-color: transparent;
+  font-size: 16px;
+  color: #0096c7;
+}
+
+.search_input::placeholder {
+  font-style: italic;
+  color: #999;
+}
+
+.search_box.s_active {
+  background-color: #f9f6f6;
+}
+
+.btn_faq {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.btn_faq img {
+  width: 35px;
+  height: 35px;
+}
+
+/* ==== */
+
+/* Main */
+
+.intro {
+  border-style: solid;
+  background-color: #fff;
+  height: 100px;
+  width: auto;
+}
+
+.c_items {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+}
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.promo {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-body i {
+  color: #0096c7;
+}
+
+.card-body span {
+  color: #999;
+}
+
+/* ==== */
+
+/* Bottom Nav Bar */
+
+.bottom_bar {
+  border-style: solid;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.bot_bar {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.bot_bar a {
+  color: #000;
+}
+
+.bot_bar img {
+  width: 28px;
+  height: 28px;
+}
+
+.bot_bar span {
+  font-size: 10px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-container.b_active {
+  color: #4cb5d8;
+}
+/* ==== */

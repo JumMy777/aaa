@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hotel de Java</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+
+    <!--CUSTOM FONTS-->
+    <link
+      href="https://db.onlinewebfonts.com/c/fb4e5307894d3c64bff1c4c6e08934a6?family=Berlingske+Serif+Text"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/optimus-princeps"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <script type="module" src="./js/main.js"></script>
+
+    <meta name="theme-color" content="#31d53d" />
+  </head>
+  <body>
+    <header>
+      <!--NAV BAR-->
+      <nav class="navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand font1" href="#">Hotel de Java</a>
+
+          <div class="ms-auto pe-3">
+            <a class="nav_booking_button text-white" href="">Book now</a>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end text-bg-dark"
+            tabindex="-1"
+            id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >About Us</a
+                  >
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="facilities-and-services.html"
+                    >Facilities & Services</a
+                  >
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Sign In/Sign Up</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="row">
+        <img
+          class="bg-image2"
+          src="./assets/imgs/HD-wallpaper-hotel-room-beige-style.jpg"
+          alt=""
+        />
+        <div class="position-absolute bottom-0 start-0 pb-3 ps-3 mb-5">
+          <h2 class="text-white font-weight-lighter font1">
+            Step into a world of <br />
+            comfort and elegance <br />
+            with our meticulously <br />
+            curated selection of <br />rooms.
+          </h2>
+          <p class="text-white pt-4">Book your stay now</p>
+        </div>
+      </div>
+      <section id="rooms" class="py-5 px-3">
+        <div class="container py-3">
+          <div class="row">
+            <h1 class="font1">Our Rooms</h1>
+            <p>
+              At <i>Hotel de Java</i>, we invite you to immerse yourself in the
+              natural beauty and tranquility of the CARAGA Region. We take pride
+              in offering our guests four different state-of-the-art guest
+              rooms, each designed to provide a unique and comfortable
+              experience. Whether you're seeking a peaceful getaway or an
+              adventure-filled escape, we invite you to experience our
+              hospitality and discover the true essence of <i>Hotel de Java</i>.
+            </p>
+            <p>
+              We encourage our guests to experience our hospitality with our 3
+              different state of the art guest rooms.
+            </p>
+          </div>
+
+          <div class="row">
+            <img
+              class="py-5"
+              src="./assets/imgs/StdRoom1.jpg"
+              alt="Standard Room"
+            />
+            <h4 class="font1 pb-1">Standard Room</h4>
+            <p>
+              Indulge in spacious and elegantly appointed rooms, each designed
+              to provide the utmost comfort during your stay. Whether you're
+              traveling for business or leisure, our accommodations offer the
+              perfect blend of style and functionality.
+            </p>
+            <div>
+              <a href="#" class="btn btn-1">View More</a>
+            </div>
+          </div>
+
+          <div class="row">
+            <img
+              class="py-5 mt-5"
+              src="./assets/imgs/dlRoom1.avif"
+              alt="Deluxe Room"
+            />
+            <h4 class="font1 pb-1">Deluxe Room</h4>
+            <p>
+              Indulge in luxury and sophistication with our Deluxe Rooms, where
+              modern elegance meets unparalleled comfort. Immerse yourself in
+              spacious surroundings adorned with stylish furnishings and upscale
+              amenities, designed to elevate your stay to new heights. Treat
+              yourself to an unforgettable stay and reserve your Deluxe Room
+              today.
+            </p>
+            <div>
+              <a href="#" class="btn btn-1">View More</a>
+            </div>
+          </div>
+
+          <div class="row">
+            <img
+              class="py-5 mt-5"
+              src="./assets/imgs/FamRoom.jpg"
+              alt="Family Room"
+            />
+            <h4 class="font1 pb-1">Family Room</h4>
+            <p>
+              Create unforgettable memories with your loved ones in our spacious
+              Family Rooms, designed to accommodate families of all sizes.
+              Featuring ample space, comfortable bedding, and thoughtful
+              amenities, our Family Rooms provide the perfect home base for your
+              family adventures. Book your Family Room today and embark on a
+              memorable family getaway.
+            </p>
+            <div>
+              <a href="#" class="btn btn-1">View More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
