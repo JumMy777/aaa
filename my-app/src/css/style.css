@@ -111,6 +111,23 @@ body {
   color: #999;
 }
 
+.acc_bg {
+  background-color: #f9f6f6;
+}
+
+.acc_img {
+  width: 60px;
+  height: 60px;
+}
+
+.acc_box {
+  background-color: #fff;
+}
+
+.acc_icon i {
+  color: #515151;
+}
+
 /* ==== */
 
 /* Bottom Nav Bar */
