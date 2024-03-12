@@ -112,7 +112,19 @@ body {
 }
 
 .acc_bg {
-  background-color: #f9f6f6;
+  background: rgb(0, 150, 199);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 150, 199, 1) 15%,
+    rgba(76, 181, 216, 1) 30%,
+    rgba(163, 217, 235, 1) 45%,
+    rgba(206, 235, 244, 1) 60%,
+    rgba(249, 249, 249, 1) 75%
+  );
+}
+
+.acc_bg2 {
+  background-color: #f9f9f9;
 }
 
 .acc_img {
