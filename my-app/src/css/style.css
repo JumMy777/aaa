@@ -111,6 +111,10 @@ body {
   color: #999;
 }
 
+.col.col_hotel {
+  flex: none !important;
+}
+
 .acc_bg {
   background: rgb(0, 150, 199);
   background: linear-gradient(
@@ -123,7 +127,7 @@ body {
   );
 }
 
-.acc_bg2 {
+.acc_body {
   background-color: #f9f9f9;
 }
 
