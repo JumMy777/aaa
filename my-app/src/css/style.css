@@ -67,6 +67,24 @@ body {
   height: 35px;
 }
 
+.container.btn_hotel {
+  padding-top: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+.carousel-item img {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-close.btn_bg {
+  background-color: #ffffff;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
 /* ==== */
 
 /* Main */
@@ -174,10 +192,19 @@ body {
   font-size: 10px;
 }
 
+.bot_bar small {
+  font-size: 13px;
+  color: #5b5b5b;
+}
+
 .icon-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.icon-container2 h2 {
+  margin-bottom: 0;
 }
 
 .icon-container.b_active {
