@@ -92,7 +92,7 @@ body {
 .intro {
   border-style: solid;
   background-color: #fff;
-  height: 100px;
+  height: 110px;
   width: auto;
 }
 
@@ -162,6 +162,14 @@ body {
   color: #515151;
 }
 
+.btn.btn-1 {
+  background-color: #0096c7;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
 /* ==== */
 
 /* Bottom Nav Bar */
@@ -210,4 +218,5 @@ body {
 .icon-container.b_active {
   color: #4cb5d8;
 }
+
 /* ==== */
