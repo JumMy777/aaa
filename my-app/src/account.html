@@ -19,7 +19,7 @@
       src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
     ></script>
 
-    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./assets/icon/LOGO.png" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="./css/style.css" />
     <link
@@ -36,7 +36,7 @@
       <br /><br /><br />
       <!-- Header -->
       <div class="container">
-        <div class="row">
+        <div class="row" data-bs-toggle="modal" data-bs-target="#LoginModal">
           <div class="col-md-2 col-3">
             <img
               src="./assets/imgs/Account.png"
@@ -45,7 +45,7 @@
             />
           </div>
           <div class="col-md-10 col-9 my-auto">
-            <h2 class="fw-bold text-white">Login or Signup</h2>
+            <h2 class="fw-bold text-white">Login or Sign up</h2>
           </div>
         </div>
       </div>
@@ -53,7 +53,12 @@
       <br />
 
       <!-- Account Box -->
-      <div class="container acc_box rounded-4">
+      <!--FIXME: Temporary LoginModal-->
+      <div
+        class="container acc_box rounded-4"
+        data-bs-toggle="modal"
+        data-bs-target="#LoginModal"
+      >
         <div class="container pt-4 pb-4">
           <div class="row">
             <div class="col acc_icon">
@@ -104,7 +109,7 @@
             </div>
           </div>
           <hr class="border-dark-subtle" />
-          <div class="row">
+          <div class="row" data-bs-toggle="modal" data-bs-target="#LoginModal">
             <div class="col acc_icon">
               <h5>
                 <i class="bi bi-box-arrow-left pe-3"></i> Login<i
@@ -119,6 +124,228 @@
       <br /><br />
     </div>
     <!-- End of Account Box 2 -->
+
+    <!-- Login Modal  -->
+    <div
+      class="modal fade"
+      id="LoginModal"
+      aria-labelledby="LoginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="container btn_hotel">
+            <button
+              type="button"
+              class="btn-close btn_bg"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body position-relative">
+            <div
+              class="container position-absolute top-50 start-50 translate-middle"
+            >
+              <div class="row">
+                <div class="col text-center">
+                  <img src="./assets/icon/UwU Logo.svg" width="250px" />
+                </div>
+              </div>
+              <div class="row">
+                <!-- !!start of col 1 -->
+                <div class="col"></div>
+                <!-- !!end of col 1 -->
+
+                <!-- !!Start of col 2 -->
+                <div class="col-8">
+                  <form>
+                    <br />
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="floatingEmail"
+                        placeholder="Email"
+                      />
+                      <label for="floatingusername">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="floatingPassword"
+                        placeholder="Password"
+                      />
+                      <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                      <button type="login" class="btn btn-1 btn-lg">
+                        Login
+                      </button>
+                      <hr />
+                    </div>
+                    <br />
+                    <div class="text-center">
+                      <p>Not a member?</p>
+                      <a
+                        class="text-decoration-none"
+                        data-bs-toggle="modal"
+                        data-bs-target="#SignupModal"
+                        >Create an account</a
+                      >
+                    </div>
+                  </form>
+                </div>
+
+                <!-- !!end of col 2 -->
+
+                <!-- !! start of col 3 -->
+                <div class="col"></div>
+
+                <!-- !!end of col 3 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Login Modal -->
+
+    <!-- Signup Modal  -->
+    <div
+      class="modal fade"
+      id="SignupModal"
+      aria-labelledby="SignupModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="container btn_hotel">
+            <button
+              type="button"
+              class="btn-close btn_bg"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body position-relative">
+            <div
+              class="container position-absolute top-50 start-50 translate-middle"
+            >
+              <div class="row">
+                <div class="col text-center">
+                  <img src="./assets/icon/UwU Logo.svg" width="250px" />
+                </div>
+              </div>
+              <div class="row">
+                <!-- *Start of Col 1 -->
+                <div class="col"></div>
+                <!-- *End of Col 1 -->
+
+                <!-- *Start of Col 2 -->
+                <div class="col-8 text-center pl-5">
+                  <form>
+                    <br />
+                    <div class="form-floating mb-3">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="floatingemail"
+                        placeholder="example@example.com"
+                      />
+                      <label for="floatingemail">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="floatingPassword"
+                        placeholder="Password"
+                      />
+                      <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="floatingfname"
+                            placeholder="First Name"
+                          />
+                          <label for="floatingfname">First Name</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="floatinglname"
+                            placeholder="Last Name"
+                          />
+                          <label for="floatinglname">Last Name</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="tel"
+                            class="form-control"
+                            id="floatingcontact"
+                            placeholder="Contact"
+                          />
+                          <label for="floatingcontact">Contact</label>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="floatingaddress"
+                            placeholder="Address"
+                          />
+                          <label for="floatingaddress">Address</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                      <button type="register" class="btn btn-1 btn-lg">
+                        Sign up
+                      </button>
+                    </div>
+                    <hr />
+                    <br />
+                    <p class="fs-6">
+                      Already have an account?
+                      <a
+                        class="text-decoration-none"
+                        data-bs-toggle="modal"
+                        data-bs-target="#LoginModal"
+                        >Login</a
+                      >
+                    </p>
+                  </form>
+                </div>
+                <!-- *End of Col 2 -->
+
+                <!-- *Start of Col 3 -->
+                <div class="col"></div>
+                <!-- *End of Col 3 -->
+              </div>
+              <!--* End of Row -->
+            </div>
+            <!-- *End of Container -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Signup Modal -->
 
     <!-- Faq Modal -->
     <div
