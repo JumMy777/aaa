@@ -39,31 +39,81 @@
           <div class="container py-3">
             <div class="row">
               <div class="col-10">
-                <form class="search_box pe-3 ps-2" role="search" wi>
+                <div
+                  class="search_box position-relative"
+                  data-bs-toggle="modal"
+                  data-bs-target="#searchModal"
+                >
                   <img src="./assets/icon/search.svg" alt="Search Icon" />
                   <input
-                    class="ps-2 search_input"
+                    class="ps-2"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
                   />
-                </form>
+                </div>
               </div>
-              <div class="col-2 d-flex">
-                <button
-                  type="button"
-                  class="btn_faq"
-                  data-bs-toggle="modal"
-                  data-bs-target="#faqModal"
-                >
-                  <img src="./assets/icon/faq-fill-white.svg" alt="" />
-                </button>
+              <div
+                class="col-2 faq my-auto btn_faq"
+                data-bs-toggle="modal"
+                data-bs-target="#faqModal"
+              >
+                <img src="./assets/icon/faq-fill-white.svg" alt="" />
               </div>
             </div>
           </div>
         </div>
       </nav>
       <!-- End of Top-bar -->
+
+      <!-- Search Modal -->
+      <div
+        class="modal fade"
+        id="searchModal"
+        tabindex="-1"
+        aria-labelledby="searchModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="container-fluid">
+              <div class="container py-3">
+                <div class="row">
+                  <div class="col-10">
+                    <div class="position-relative search_box search_btn">
+                      <img
+                        src="./assets/icon/search-fill.svg"
+                        alt="Search Icon"
+                      />
+                      <input
+                        id="searchInput"
+                        class="ps-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                      />
+                      <button class="btn sm_btn">
+                        <i class="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="col-2 text-center my-auto">
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body" id="searchResults"></div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Search Modal -->
 
       <!-- Intro Logo -->
       <br /><br /><br />
