@@ -47,7 +47,7 @@
                 <input
                   class="ps-2"
                   type="search"
-                  placeholder="Search"
+                  placeholder="Search for location"
                   aria-label="Search"
                 />
               </div>
@@ -88,7 +88,7 @@
                       id="searchInput"
                       class="ps-2"
                       type="search"
-                      placeholder="Search"
+                      placeholder="Search for location"
                       aria-label="Search"
                     />
                     <button class="btn sm_btn">
@@ -351,7 +351,11 @@
     <div class="container mb-4">
       <h4 class="py-3">Deluxe Hotels</h4>
       <div class="scrolling-wrapper">
-        <div class="col col_hotel pe-3">
+        <div
+          class="col col_hotel pe-3"
+          data-bs-toggle="modal"
+          data-bs-target="#Butuan_Watergate"
+        >
           <div class="card" style="width: 18rem">
             <img
               src="./assets/imgs/Butuan_Watergate.jpg"
@@ -434,6 +438,161 @@
       </div>
     </div>
     <!-- End of Deluxe Hotel-->
+
+    <!-- Butuan-WaterGate Modal  -->
+    <div
+      class="modal fade"
+      id="Butuan_Watergate"
+      aria-labelledby="Butuan_Watergate_label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="container btn_hotel">
+            <button
+              type="button"
+              class="btn-close btn_bg"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Carousel -->
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="7000">
+                <img
+                  src="./assets/imgs/Butuan_Watergate.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img
+                  src="./assets/imgs/Butuan_Watergate_pic1.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/imgs/Butuan_Watergate_pic2.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+          </div>
+          <!-- End of Carousel -->
+          <div class="modal-body gray_bg">
+            <!-- Hotel Info -->
+            <div class="container bg-white shadow rounded-4">
+              <div class="container pt-3 pb-4">
+                <div class="row">
+                  <div class="col hm_card">
+                    <h2 class="d-block">Watergate Hotel</h2>
+                    <h5 class="d-block">
+                      4.3 <i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i><i class="bi bi-star"></i
+                      ><small class="ps-2 font-monospace">703 reviews</small>
+                    </h5>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center pt-3">
+                  <div class="d-flex">
+                    <i class="bi bi-geo-alt-fill"></i>
+                  </div>
+                  <div class="flex-grow-1 ms-2">
+                    XG2H+9RR, Jose Rosales Ave, Butuan City, Agusan Del Norte
+                  </div>
+                  <div class="flex-column hm_img text-center">
+                    <img src="./assets/icon/location.svg" alt="..." />
+                    <small>Map</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container bg-white shadow rounded-4 mt-3">
+              <div class="container py-3">
+                <div class="d-flex align-items-center">
+                  <div class="flex-shrink-0 hm_img_r">
+                    <img
+                      class="object-fit-cover border rounded"
+                      src="./assets/imgs/Butuan_Watergate_pic3.jpg"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <p class="fw-medium mt-3">
+                      Deluxe Room, 1 Queen Bed <br />
+                      1 double bed or bigger <br />
+                      <small class="font-monospace">24.0 m2</small>
+                    </p>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked"
+                      checked
+                    />
+                    <label class="form-check-label" for="flexCheckChecked">
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hotel Name -->
+          </div>
+          <div class="fixed-bottom">
+            <div class="container-fluid bottom_bar border shadow">
+              <div class="container py-2">
+                <div class="row">
+                  <div class="col-md-5 col-5 icon-container2 my-auto bot_bar">
+                    <h2 class="fw-bold">₱3,096</h2>
+                    <small>Total amount</small>
+                  </div>
+                  <div class="col-md-7 col-7 my-auto d-grid px-2">
+                    <button type="button" class="btn btn-1">Book now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Butuan-WaterGate Modal -->
 
     <!-- Standard Hotel -->
     <div class="container mb-4">
