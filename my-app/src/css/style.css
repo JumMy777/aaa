@@ -156,17 +156,13 @@ body {
   );
 }
 
-.acc_body {
+.gray_bg {
   background-color: #f9f9f9;
 }
 
 .acc_img {
   width: 60px;
   height: 60px;
-}
-
-.acc_box {
-  background-color: #fff;
 }
 
 .acc_icon i {
@@ -187,6 +183,34 @@ body {
   border: none;
   outline: none;
   border-radius: 30px;
+}
+
+.hm_card i {
+  color: #0096c7;
+}
+
+.hm_card small {
+  font-size: 15px;
+  color: #999;
+}
+
+.hm_img img {
+  width: 28px;
+  height: 100%;
+}
+
+.hm_img small {
+  font-size: 15px;
+  color: #0096c7;
+}
+
+.hm_img_r img {
+  width: 80px;
+  height: 80px;
+}
+
+.fw-medium {
+  font-size: 14px;
 }
 
 /* ==== */
