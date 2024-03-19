@@ -96,6 +96,10 @@ body {
   border-radius: 50%;
 }
 
+.white-background {
+  background-color: white;
+}
+
 /* ==== */
 
 /* Main */
@@ -209,8 +213,52 @@ body {
   height: 80px;
 }
 
+.hm_headings h5 {
+  border-left-style: solid;
+  border-color: #0096c7;
+  border-width: 5px;
+}
+
+.hm_headings button {
+  margin-top: 20px;
+}
+
+.hm_reviews span {
+  font-size: 50px;
+}
+
+.hm_reviews small {
+  font-size: 15px;
+  color: #999;
+}
+
+.hm_gray {
+  color: #999;
+}
+
+.hm_progress span {
+  font-size: 15px;
+}
+
+.progress-bar {
+  background-color: #0096c7 !important;
+}
+
 .fw-medium {
   font-size: 14px;
+}
+
+.form-check-input:checked {
+  background-color: #0096c7 !important;
+  border-color: #0096c7 !important;
+}
+
+.btn.show-more {
+  width: 125px;
+}
+
+.btn.show-less {
+  width: 125px;
 }
 
 /* ==== */
