@@ -49,6 +49,7 @@
                   type="search"
                   placeholder="Search for location"
                   aria-label="Search"
+                  readonly
                 />
               </div>
             </div>
@@ -67,7 +68,7 @@
 
     <!-- Search Modal -->
     <div
-      class="modal fade"
+      class="modal"
       id="searchModal"
       tabindex="-1"
       aria-labelledby="searchModalLabel"
@@ -79,7 +80,9 @@
             <div class="container py-3">
               <div class="row">
                 <div class="col-10">
-                  <div class="position-relative search_box search_btn">
+                  <div
+                    class="position-relative search_box search_btn align-items-center"
+                  >
                     <img
                       src="./assets/icon/search-fill.svg"
                       alt="Search Icon"
@@ -650,7 +653,9 @@
                 ><i class="bi bi-star"></i> 3.9
                 <span>(60)</span>
               </p>
-              <h5>LaDolceVita Inland Resort</h5>
+              <h5 class="d-inline-block text-truncate">
+                LaDolceVita Inland Resort
+              </h5>
               <small>4GGP+896, Cabadbaran City</small>
               <h4 class="pt-2"><b>₱1,660</b></h4>
             </div>
@@ -690,7 +695,9 @@
                 ><i class="bi bi-star"></i> 4.4
                 <span>(283)</span>
               </p>
-              <h5>Mt. Bagarabon Beach Hotel</h5>
+              <h5 class="d-inline-block text-truncate">
+                Mt. Bagarabon Beach Hotel
+              </h5>
               <small>RC7Q+HC5, Surigao City</small>
               <h4 class="pt-2"><b>₱1,788</b></h4>
             </div>

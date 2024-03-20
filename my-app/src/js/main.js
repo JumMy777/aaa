@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Top-bar and search-box background color change on
+// Top-bar change on scroll
 var topBar = document.querySelector(".top-bar");
 var searchBox = document.querySelector(".search_box");
 var introLogo = document.querySelector(".intro-logo");
@@ -33,10 +33,10 @@ window.addEventListener("scroll", function () {
   if (scrollPosition > introLogoPosition) {
     topBar.classList.add("white-background");
     searchBox.classList.add("s_active");
-    faqImage.src = "./assets/icon/faq-fill-black.svg";
+    faqImage.src = "/assets/icon/faq-fill-black.svg";
   } else {
     topBar.classList.remove("white-background");
     searchBox.classList.remove("s_active");
-    faqImage.src = "./assets/icon/faq-fill-white.svg";
+    faqImage.src = "/assets/icon/faq-fill-white.svg";
   }
 });

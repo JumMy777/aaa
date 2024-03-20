@@ -54,6 +54,7 @@
                     type="search"
                     placeholder="Search for location"
                     aria-label="Search"
+                    readonly
                   />
                 </div>
               </div>
@@ -72,7 +73,7 @@
 
       <!-- Search Modal -->
       <div
-        class="modal fade"
+        class="modal"
         id="searchModal"
         tabindex="-1"
         aria-labelledby="searchModalLabel"
@@ -84,7 +85,9 @@
               <div class="container py-3">
                 <div class="row">
                   <div class="col-10">
-                    <div class="position-relative search_box search_btn">
+                    <div
+                      class="position-relative search_box search_btn align-items-center"
+                    >
                       <img
                         src="./assets/icon/search-fill.svg"
                         alt="Search Icon"
@@ -496,7 +499,9 @@
                 ><i class="bi bi-star"></i> 3.9
                 <span>(60)</span>
               </p>
-              <h5>LaDolceVita Inland Resort</h5>
+              <h5 class="d-inline-block text-truncate">
+                LaDolceVita Inland Resort
+              </h5>
               <small>4GGP+896, Cabadbaran City</small>
               <h4 class="pt-2"><b>₱1,660</b></h4>
             </div>
@@ -577,8 +582,8 @@
           </div>
           <!-- End of Carousel -->
           <div class="modal-body gray_bg">
-            <!-- Hotel Info -->
-            <div class="container bg-white shadow rounded-4">
+            <!-- Hotel Intro -->
+            <div class="container bg-white shadow-sm rounded-4">
               <div class="container pt-3 pb-4">
                 <div class="row">
                   <div class="col hm_card">
@@ -593,21 +598,22 @@
                   </div>
                 </div>
                 <div class="d-flex align-items-center pt-3">
-                  <div class="d-flex">
-                    <i class="bi bi-geo-alt-fill"></i>
+                  <div class="flex-grow-1">
+                    <span>
+                      XG2H+9RR, Jose Rosales Ave, Butuan City, Agusan Del Norte
+                    </span>
                   </div>
-                  <div class="flex-grow-1 ms-2">
-                    XG2H+9RR, Jose Rosales Ave, Butuan City, Agusan Del Norte
-                  </div>
-                  <div class="flex-column hm_img text-center">
+                  <div class="flex-column hm_img text-center px-2">
                     <img src="./assets/icon/location.svg" alt="..." />
                     <small>Map</small>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- End of Hotel Intro -->
 
-            <div class="container bg-white shadow rounded-4 mt-3">
+            <!-- Room Selection -->
+            <div class="container bg-white shadow-sm rounded-4 mt-3">
               <div class="container py-3">
                 <div class="row hm_headings">
                   <h5>Select your room</h5>
@@ -622,8 +628,8 @@
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <p class="fw-medium mt-3">
-                      Deluxe Room, 1 Queen Bed <br />
-                      1 double bed or bigger <br />
+                      Deluxe Room,<br />
+                      1 Queen Bed <br />
                       <small class="font-monospace hm_gray">24.0 m2</small>
                     </p>
                   </div>
@@ -641,8 +647,10 @@
                 </div>
               </div>
             </div>
+            <!-- End of Room Selection -->
 
-            <div class="container bg-white shadow rounded-4 mt-3">
+            <!-- Amenities -->
+            <div class="container bg-white shadow-sm rounded-4 mt-3">
               <div class="container py-3">
                 <div class="row hm_headings">
                   <h5>Amenities</h5>
@@ -723,8 +731,10 @@
                 </div>
               </div>
             </div>
+            <!-- End of Amenities -->
 
-            <div class="container bg-white shadow rounded-4 mt-3">
+            <!-- Reviews -->
+            <div class="container bg-white shadow-sm rounded-4 mt-3">
               <div class="container py-3">
                 <div class="row hm_headings">
                   <h5>Reviews</h5>
@@ -817,9 +827,11 @@
                 </div>
               </div>
             </div>
+            <!-- End of Reviews -->
             <br /><br /><br />
           </div>
 
+          <!-- Hotel Modal Bottom-Bar -->
           <div class="fixed-bottom">
             <div class="container-fluid bottom_bar border shadow">
               <div class="container py-2">
@@ -835,6 +847,7 @@
               </div>
             </div>
           </div>
+          <!-- End of Hotel Modal Bottom-Bar -->
         </div>
       </div>
     </div>
