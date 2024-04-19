@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
@@ -28,6 +28,7 @@
     />
 
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/auth/account.js"></script>
 
     <meta name="theme-color" content="#31d53d" />
   </head>
@@ -53,14 +54,14 @@
       <br />
 
       <!-- Account Box -->
-      <!--FIXME: Temporary LoginModal-->
-      <div
-        class="container bg-white shadow-sm rounded-4"
-        data-bs-toggle="modal"
-        data-bs-target="#LoginModal"
-      >
+
+      <div class="container bg-white shadow-sm rounded-4">
         <div class="container pt-4 pb-4">
-          <div class="row">
+          <div
+            class="row"
+            data-bs-toggle="modal"
+            data-bs-target="#bookingDetails"
+          >
             <div class="col acc_icon">
               <h5>
                 <i class="bi bi-file-text pe-3"></i> Bookings<i
@@ -70,7 +71,7 @@
             </div>
           </div>
           <hr class="border-dark-subtle" />
-          <div class="row">
+          <div class="row" data-bs-toggle="modal" data-bs-target="#personaInfo">
             <div class="col acc_icon">
               <h5>
                 <i class="bi bi-chat-right-text pe-3"></i> Personal Info<i
@@ -166,6 +167,7 @@
                         class="form-control"
                         id="floatingEmail"
                         placeholder="Email"
+                        required
                       />
                       <label for="floatingusername">Email</label>
                     </div>
@@ -175,12 +177,19 @@
                         class="form-control"
                         id="floatingPassword"
                         placeholder="Password"
+                        required
                       />
                       <label for="floatingPassword">Password</label>
                     </div>
                     <div class="d-grid gap-2">
                       <button type="login" class="btn btn-1 btn-lg">
-                        Login
+                        <!--FIXME: this is temporary  -->
+                        <a
+                          href="admin.html"
+                          class="text-decoration-none text-white"
+                          >Login</a
+                        >
+                        <!-- End of Fixme -->
                       </button>
                       <hr />
                     </div>
@@ -228,10 +237,9 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body position-relative">
-            <div
-              class="container position-absolute top-50 start-50 translate-middle"
-            >
+          <div class="modal-body">
+            <br />
+            <div class="container">
               <div class="row">
                 <div class="col text-center">
                   <img src="./assets/icon/UwU Logo.svg" width="250px" />
@@ -244,80 +252,115 @@
 
                 <!-- *Start of Col 2 -->
                 <div class="col-9 text-center pl-5">
-                  <form>
+
+                  <!-- !! form start of signup -->
+                  <form id="form_register">
                     <br />
+
+                    <!-- !! email field -->
                     <div class="form-floating mb-3">
                       <input
+                        name="email"
                         type="email"
                         class="form-control"
-                        id="floatingemail"
-                        placeholder="example@example.com"
+                        id="email"
+                        placeholder="Email"
+                        required
                       />
                       <label for="floatingemail">Email</label>
                     </div>
+
+                    <!-- !! password field -->
                     <div class="form-floating mb-3">
                       <input
+                        name="password"
                         type="password"
                         class="form-control"
-                        id="floatingPassword"
+                        id="password"
                         placeholder="Password"
+                        required
                       />
                       <label for="floatingPassword">Password</label>
                     </div>
 
-                    <div class="row">
-                      <div class="col">
-                        <div class="form-floating mb-3 text-truncate">
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="floatingfname"
-                            placeholder="First Name"
-                          />
-                          <label class="d-inline-block" for="floatingfname"
-                            >First Name</label
-                          >
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="form-floating mb-3 text-truncate">
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="floatinglname"
-                            placeholder="Last Name"
-                          />
-                          <label for="floatinglname">Last Name</label>
-                        </div>
+                    
+                    <!-- !! password confirmation field -->
+                    <div class="form-floating mb-3">
+                      <input
+                        name="password_confirmation"
+                        type="password"
+                        class="form-control"
+                        id="password_confirmation"
+                        placeholder="Password confirmation"
+                        required
+                      />
+                      <label for="floatingPassword">Password confirmation</label>
+                    </div>
+
+                    <!-- !! first name field -->
+                    <div class="col">
+                      <div class="form-floating mb-3 text-truncate">
+                        <input
+                        name="first_name"
+                          type="text"
+                          class="form-control"
+                          id="floatingfname"
+                          placeholder="First Name"
+                          required
+                        />
+                        <label class="d-inline-block" for="floatingfname"
+                          >First Name</label
+                        >
                       </div>
                     </div>
 
-                    <div class="row">
-                      <div class="col-6">
-                        <div class="form-floating mb-3 text-truncate">
-                          <input
-                            type="tel"
-                            class="form-control"
-                            id="floatingcontact"
-                            placeholder="Contact"
-                          />
-                          <label for="floatingcontact">Contact</label>
-                        </div>
+                    <!-- !! last name field -->
+                    <div class="col">
+                      <div class="form-floating mb-3 text-truncate">
+                        <input
+                          name="last_name"
+                          type="text"
+                          class="form-control"
+                          id="floatinglname"
+                          placeholder="Last Name"
+                          required
+                        />
+                        <label for="floatinglname">Last Name</label>
                       </div>
-                      <div class="col-6">
-                        <div class="form-floating mb-3 text-truncate">
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="floatingaddress"
-                            placeholder="Address"
-                          />
-                          <label for="floatingaddress">Address</label>
-                        </div>
+                    </div>
+
+                    <!-- !! contact field -->
+                    <div class="col">
+                      <div class="form-floating mb-3 text-truncate">
+                        <input
+                          name="contact_num"
+                          type="number"
+                          class="form-control"
+                          id="floatingcontact"
+                          placeholder="Contact"
+                          required
+                        />
+                        <label for="floatingcontact">Contact</label>
+                      </div>
+                    </div>
+
+                    <!-- !! address field -->
+                    <div class="col">
+                      <textarea
+                        name="address"
+                        type="text"
+                        class="form-control"
+                        id="floatingaddress"
+                        placeholder="Address"
+                        rows="4"
+                        required
+                      ></textarea>
+                      <div class="form-floating mb-3 text-truncate">
+                        <label for="floatingaddress">Address</label>
                       </div>
                     </div>
                     <div class="d-grid gap-2">
-                      <button type="register" class="btn btn-1 btn-lg">
+                      <button type="submit" class="btn btn-1 btn-lg">
                         Sign up
                       </button>
                     </div>
@@ -333,6 +376,8 @@
                       >
                     </p>
                   </form>
+                  <!-- !! form end -->
+
                 </div>
                 <!-- *End of Col 2 -->
 
@@ -344,6 +389,7 @@
             </div>
             <!-- *End of Container -->
           </div>
+          <br />
         </div>
       </div>
     </div>
@@ -580,6 +626,158 @@
       </div>
     </div>
     <!-- End of Faq Modal -->
+
+    <!-- Booking Details Modal -->
+    <div
+      class="modal fade"
+      id="bookingDetails"
+      tabindex="-1"
+      aria-labelledby="bookingDetailsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="bookingDetails">Bookings</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body gray_bg">
+            <div class="container bg-white shadow-sm rounded-4 pb-3">
+              <h3 class="pt-3">Recent Bookings</h3>
+              <hr class="border-dark-subtle" />
+              <div class="row fw-semibold pt-1">
+                <div class="col-6">Hotel</div>
+                <div class="col-3">Status</div>
+                <div class="col-3">Details</div>
+              </div>
+              <hr class="border-dark-subtle my-2" />
+              <div class="row align-items-center b_details">
+                <div class="col-6"><span>Watergate Hotel</span></div>
+                <div class="col-3">
+                  <small class="bg-success text-white rounded-2 p-1"
+                    >Confirmed</small
+                  >
+                </div>
+                <div class="col-3">
+                  <small
+                    class="btn btn-outline-secondary rounded-2 px-2 py-1 text-wrap"
+                    >Details</small
+                  >
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="container bg-white shadow-sm rounded-4 pb-3">
+              <h3 class="pt-3">Previous Bookings</h3>
+              <hr class="border-dark-subtle" />
+              <div class="row fw-semibold pt-1">
+                <div class="col-6">Hotel</div>
+                <div class="col-3">Status</div>
+                <div class="col-3">Details</div>
+              </div>
+              <hr class="border-dark-subtle my-2" />
+              <div class="row align-items-center b_details text-center py-5">
+                <div class="col"><span>No Previous Bookings</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Booking Details Modal -->
+
+    <!-- !! Personal Info Modal -->
+    <div
+      class="modal fade"
+      id="personaInfo"
+      tabindex="-1"
+      aria-labelledby="personaInfoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="personaInfo">
+              Personal information
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body gray_bg">
+            <div class="container bg-white shadow-sm rounded-4 mt-3 pt-3 pb-4">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <h2>User Profile</h2>
+                      <hr />
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <p class="fw-bold">Email:</p>
+                      </div>
+                      <div class="col-8">
+                        <p class="text-truncate">example@example.com</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <p class="fw-bold">Name:</p>
+                      </div>
+                      <div class="col-8">
+                        <p class="text-truncate">John</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <p class="fw-bold">Contact:</p>
+                      </div>
+                      <div class="col-8">
+                        <p>123-456-7890</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <p class="fw-bold">Address:</p>
+                      </div>
+                      <div class="col">
+                        <p class="text-truncate">123 Main St, City, Country</p>
+                      </div>
+                      <div class="col-2">
+                        <button type="button" class="btn btn-primary btn-sm">
+                          <i class="bi bi-pencil-square"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- !! End personal info Modal -->
 
     <!-- Bottom-Bar -->
     <footer class="fixed-bottom">

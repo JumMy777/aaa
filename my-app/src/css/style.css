@@ -99,6 +99,11 @@ body {
   background-color: white;
 }
 
+.search_item img {
+  width: 40px;
+  height: 40px;
+}
+
 /* ==== */
 
 /* Main */
@@ -197,6 +202,10 @@ body {
   color: #999;
 }
 
+.hm_card span {
+  color: #0096c7;
+}
+
 .hm_img img {
   width: 28px;
   height: 100%;
@@ -254,10 +263,42 @@ body {
 
 .btn.show-more {
   width: 125px;
+  border-color: #0096c7;
+  color: #0096c7;
 }
 
-.btn.show-less {
-  width: 125px;
+.btn.show-more:focus {
+  border-color: #0096c7;
+  color: #0096c7;
+}
+
+.card.shadow-sm {
+  border-color: #0095c789 !important;
+}
+
+.about_section p {
+  font-size: 15px;
+}
+
+.admin_home {
+  width: 40px;
+  height: 40px;
+}
+
+.chart_box {
+  background-color: #5dbcdb;
+}
+
+.b_details span {
+  font-size: 13px;
+}
+
+.b_details small {
+  font-size: 9px;
+}
+
+.a_textcolor {
+  color: #212529;
 }
 
 /* ==== */
@@ -307,6 +348,14 @@ body {
 
 .icon-container.b_active {
   color: #4cb5d8;
+}
+
+.modal-backdrop {
+  display: none;
+}
+
+.modal {
+  overflow-y: auto;
 }
 
 /* ==== */

@@ -12,6 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         hotel: resolve(__dirname, "src/hotel.html"),
         account: resolve(__dirname, "src/account.html"),
+        hotel_info: resolve(__dirname, "src/hotel_info.html"),
       },
     },
   },
