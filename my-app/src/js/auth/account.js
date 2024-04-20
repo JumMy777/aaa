@@ -1,19 +1,17 @@
-import { supabase } from "../main";
+import { supabase, successNotification, errorNotification } from "../main";
 
 
 const form_register = document.getElementById("form_register");
 
 form_register.onsubmit = async (e) => {
   e.preventDefault(); // Prevent the default form submission behavior
-  // console.log("Form submitted"); test
+  
 
   // !! get value from form sign up
   const formData = new FormData(form_register);
 
   //!! input from the form
   if (formData.get("password") == formData.get("password_confirmation")) {
-    //?? move this later
-    //!! alert("Sign up successful");
 
     //!! create user
     const { data, error } = await supabase.auth.signUp({
@@ -40,10 +38,18 @@ form_register.onsubmit = async (e) => {
     ])
         .select();
 
-      console.log(data);
+      if (error == null) {
+        successNotification("Sign up successful!", 10);
+      } else {
+        errorNotification("Something went wrong, please try again later.", 10);
+      }
       console.log(error);
     }
   } else {
-    alert("Password do not match");
+    errorNotification("Password does not match".  + " Please try again ", 10);
   }
+
+
+  //!! Reset Form
+  form_register.reset();
 };

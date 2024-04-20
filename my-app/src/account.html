@@ -267,7 +267,7 @@
                         placeholder="Email"
                         required
                       />
-                      <label for="floatingemail">Email</label>
+                      <label for="email">Email</label>
                     </div>
 
                     <!-- !! password field -->
@@ -280,7 +280,7 @@
                         placeholder="Password"
                         required
                       />
-                      <label for="floatingPassword">Password</label>
+                      <label for="password">Password</label>
                     </div>
 
                     
@@ -294,7 +294,7 @@
                         placeholder="Password confirmation"
                         required
                       />
-                      <label for="floatingPassword">Password confirmation</label>
+                      <label for="password_confirmation">Password confirmation</label>
                     </div>
 
                     <!-- !! first name field -->
@@ -304,11 +304,11 @@
                         name="first_name"
                           type="text"
                           class="form-control"
-                          id="floatingfname"
+                          id="first_name"
                           placeholder="First Name"
                           required
                         />
-                        <label class="d-inline-block" for="floatingfname"
+                        <label class="d-inline-block" for="first_name"
                           >First Name</label
                         >
                       </div>
@@ -321,11 +321,11 @@
                           name="last_name"
                           type="text"
                           class="form-control"
-                          id="floatinglname"
+                          id="last_name"
                           placeholder="Last Name"
                           required
                         />
-                        <label for="floatinglname">Last Name</label>
+                        <label for="last_name">Last Name</label>
                       </div>
                     </div>
 
@@ -336,11 +336,11 @@
                           name="contact_num"
                           type="number"
                           class="form-control"
-                          id="floatingcontact"
+                          id="contact_num"
                           placeholder="Contact"
                           required
                         />
-                        <label for="floatingcontact">Contact</label>
+                        <label for="contact_num">Contact</label>
                       </div>
                     </div>
 
@@ -350,13 +350,13 @@
                         name="address"
                         type="text"
                         class="form-control"
-                        id="floatingaddress"
+                        id="address"
                         placeholder="Address"
                         rows="4"
                         required
                       ></textarea>
                       <div class="form-floating mb-3 text-truncate">
-                        <label for="floatingaddress">Address</label>
+                        <label for="address">Address</label>
                       </div>
                     </div>
                     <div class="d-grid gap-2">
@@ -395,6 +395,10 @@
     </div>
     <!-- End of Signup Modal -->
 
+    <!-- !! notification for signup -->
+    <div class="alert alert-success d-none" role="alert"></div>
+    <div class="alert alert-danger d-none" role="alert"></div>
+    <!-- !! end of notification -->
     <!-- Faq Modal -->
     <div
       class="modal fade"

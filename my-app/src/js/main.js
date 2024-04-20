@@ -22,7 +22,38 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5pdXZtY2hlZWl3Z2NmcWNsdGNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTEyODUxMTksImV4cCI6MjAyNjg2MTExOX0.gqod-aFP7kmHFrYqZfYqHnddxklfH5Dd-wh-pBNIYYM"
 );
 
-export { supabase };
+// !! functionality for signup notification
+// Success Notification
+function successNotification(message, seconds = 0) {
+  document.querySelector(".alert-success").classList.remove("d-none");
+  document.querySelector(".alert-success").classList.add("d-block");
+  document.querySelector(".alert-success").innerHTML = message;
+
+  if (seconds != 0) {
+    setTimeout(function () {
+      document.querySelector(".alert-success").classList.remove("d-block");
+      document.querySelector(".alert-success").classList.add("d-none");
+    }, seconds * 1000);
+  }
+}
+
+// Error Notification
+function errorNotification(message, seconds = 0) {
+  document.querySelector(".alert-danger").classList.remove("d-none");
+  document.querySelector(".alert-danger").classList.add("d-block");
+  document.querySelector(".alert-danger").innerHTML = message;
+
+  if (seconds != 0) {
+    setTimeout(function () {
+      document.querySelector(".alert-danger").classList.remove("d-block");
+      document.querySelector(".alert-danger").classList.add("d-none");
+    }, seconds * 1000);
+  }
+}
+
+// !! end of functionality signup
+
+export { supabase, successNotification, errorNotification };
 
 //Search modal
 // var modal = document.getElementById("searchModal");
