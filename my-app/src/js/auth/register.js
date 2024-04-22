@@ -5,7 +5,7 @@ const form_register = document.getElementById("form_register");
 form_register.onsubmit = async (e) => {
   e.preventDefault(); // Prevent the default form submission behavior
 
-  // !! get value from form sign up
+  // !! get value from form
   const formData = new FormData(form_register);
 
   //!! input from the form
@@ -38,8 +38,8 @@ form_register.onsubmit = async (e) => {
         successNotification("Sign up successful!", 10);
       } else {
         errorNotification("Something went wrong, please try again later.", 10);
+        console.log(error);
       }
-      console.log(error);
     }
   } else {
     errorNotification("Password does not match. Please try again.", 10);

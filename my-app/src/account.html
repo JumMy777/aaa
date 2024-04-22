@@ -28,7 +28,8 @@
     />
 
     <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/auth/account.js"></script>
+    <script type="module" src="./js/auth/register.js"></script>
+    <script type="module" src="./js/auth/login.js"></script>
 
     <meta name="theme-color" content="#31d53d" />
   </head>
@@ -37,7 +38,7 @@
       <br /><br /><br />
       <!-- Header -->
       <div class="container">
-        <div class="row" data-bs-toggle="modal" data-bs-target="#LoginModal">
+        <div class="row">
           <div class="col-md-2 col-3">
             <img
               src="./assets/imgs/Account.png"
@@ -46,7 +47,21 @@
             />
           </div>
           <div class="col-md-10 col-9 my-auto">
-            <h2 class="fw-bold text-white">Login or Sign up</h2>
+            <h2 class="fw-bold text-white">
+              <a
+                class="text-decoration-none text-white"
+                data-bs-toggle="modal"
+                data-bs-target="#LoginModal"
+                >Login</a
+              >
+              or
+              <a
+                class="text-decoration-none text-white"
+                data-bs-toggle="modal"
+                data-bs-target="#SignupModal"
+                >Sign up</a
+              >
+            </h2>
           </div>
         </div>
       </div>
@@ -126,7 +141,7 @@
     </div>
     <!-- End of Account Box 2 -->
 
-    <!-- Login Modal  -->
+    <!--!!Login Modal  -->
     <div
       class="modal fade"
       id="LoginModal"
@@ -144,6 +159,11 @@
             ></button>
           </div>
           <div class="modal-body position-relative">
+            <!-- !! notification -->
+            <div class="alert alert-success d-none" role="alert"></div>
+            <div class="alert alert-danger d-none" role="alert"></div>
+            <!-- !! end of notification -->
+
             <div
               class="container position-absolute top-50 start-50 translate-middle"
             >
@@ -159,37 +179,42 @@
 
                 <!-- !!Start of col 2 -->
                 <div class="col-9">
-                  <form>
+                  <!-- !! form start -->
+                  <form id="form_login">
                     <br />
+
                     <div class="form-floating mb-3">
+                      <!-- !! email login -->
                       <input
+                        name="email"
                         type="text"
                         class="form-control"
-                        id="floatingEmail"
+                        id="email"
                         placeholder="Email"
                         required
                       />
-                      <label for="floatingusername">Email</label>
+                      <label for="email">Email</label>
                     </div>
+
                     <div class="form-floating mb-3">
+                      <!-- !! password login -->
                       <input
+                        name="password"
                         type="password"
                         class="form-control"
-                        id="floatingPassword"
+                        id="password"
                         placeholder="Password"
                         required
                       />
-                      <label for="floatingPassword">Password</label>
+                      <label for="password">Password</label>
                     </div>
                     <div class="d-grid gap-2">
                       <button type="login" class="btn btn-1 btn-lg">
-                        <!--FIXME: this is temporary  -->
-                        <a
-                          href="admin.html"
-                          class="text-decoration-none text-white"
-                          >Login</a
-                        >
-                        <!-- End of Fixme -->
+                        Login
+
+                        <!--!!FIXME: this is temporary  -->
+                        <!-- <a href="admin.html" class="text-decoration-none text-white" >Login</a> -->
+                        <!--!! End of Fixme -->
                       </button>
                       <hr />
                     </div>
@@ -204,6 +229,7 @@
                       >
                     </div>
                   </form>
+                  <!-- !! form end-->
                 </div>
 
                 <!-- !!end of col 2 -->
@@ -220,7 +246,7 @@
     </div>
     <!-- End of Login Modal -->
 
-    <!-- Signup Modal  -->
+    <!-- !! Signup Modal  -->
     <div
       class="modal fade"
       id="SignupModal"
@@ -238,6 +264,10 @@
             ></button>
           </div>
           <div class="modal-body">
+            <!-- !! notification -->
+            <div class="alert alert-success d-none" role="alert"></div>
+            <div class="alert alert-danger d-none" role="alert"></div>
+            <!-- !! end of notification -->
             <br />
             <div class="container">
               <div class="row">
@@ -252,7 +282,6 @@
 
                 <!-- *Start of Col 2 -->
                 <div class="col-9 text-center pl-5">
-
                   <!-- !! form start of signup -->
                   <form id="form_register">
                     <br />
@@ -283,7 +312,6 @@
                       <label for="password">Password</label>
                     </div>
 
-                    
                     <!-- !! password confirmation field -->
                     <div class="form-floating mb-3">
                       <input
@@ -294,14 +322,16 @@
                         placeholder="Password confirmation"
                         required
                       />
-                      <label for="password_confirmation">Password confirmation</label>
+                      <label for="password_confirmation"
+                        >Password confirmation</label
+                      >
                     </div>
 
                     <!-- !! first name field -->
                     <div class="col">
                       <div class="form-floating mb-3 text-truncate">
                         <input
-                        name="first_name"
+                          name="first_name"
                           type="text"
                           class="form-control"
                           id="first_name"
@@ -377,7 +407,6 @@
                     </p>
                   </form>
                   <!-- !! form end -->
-
                 </div>
                 <!-- *End of Col 2 -->
 
@@ -395,10 +424,6 @@
     </div>
     <!-- End of Signup Modal -->
 
-    <!-- !! notification for signup -->
-    <div class="alert alert-success d-none" role="alert"></div>
-    <div class="alert alert-danger d-none" role="alert"></div>
-    <!-- !! end of notification -->
     <!-- Faq Modal -->
     <div
       class="modal fade"
