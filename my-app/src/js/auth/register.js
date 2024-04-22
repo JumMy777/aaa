@@ -5,6 +5,13 @@ const form_register = document.getElementById("form_register");
 form_register.onsubmit = async (e) => {
   e.preventDefault(); // Prevent the default form submission behavior
 
+  //!! Disable the submit button
+  document.querySelector("#form_register button").disabled = true;
+  document.querySelector("#form_register button").innerHTML =
+    `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                      </div>
+                      <span>Loading...</span>`;
+
   // !! get value from form
   const formData = new FormData(form_register);
 
@@ -47,4 +54,8 @@ form_register.onsubmit = async (e) => {
 
   //!! Reset Form
   form_register.reset();
+
+  //!! Enable Submit Button
+  document.querySelector("#form_register button").disabled = false;
+  document.querySelector("#form_register button").innerHTML = `Sign Up`;
 };
