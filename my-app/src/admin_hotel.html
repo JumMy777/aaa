@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UwU</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+
+    <link rel="icon" type="image/x-icon" href="./assets/icon/LOGO.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/auth/admin_hotel.js"></script>
+
+    <meta name="theme-color" content="#31d53d" />
+  </head>
+  <body>
+    <!-- !! notification for signup -->
+    <div class="alert alert-success d-none" role="alert"></div>
+    <div class="alert alert-danger d-none" role="alert"></div>
+    <!-- !! end of notification -->
+
+    <form id="form_hotel">
+      <br />
+
+      <!-- !! hotel name field -->
+      <div class="form-floating mb-3">
+        <input
+          name="hotel_name"
+          type="text"
+          class="form-control"
+          id="hotel_name"
+          placeholder="Hotel name"
+          required
+        />
+        <label for="hotel_name">Hotel name</label>
+      </div>
+
+      <!-- !! hotel city field -->
+      <div class="form-floating mb-3">
+        <input
+          name="hotel_city"
+          type="text"
+          class="form-control"
+          id="hotel_city"
+          placeholder="Hotel city"
+          required
+        />
+        <label for="hotel_city">Hotel city</label>
+      </div>
+
+      <!-- !! hotel location field -->
+      <div class="form-floating mb-3">
+        <input
+          name="hotel_location"
+          type="text"
+          class="form-control"
+          id="hotel_location"
+          placeholder="Hotel location"
+          required
+        />
+        <label for="hotel_type">Hotel location</label>
+      </div>
+
+      <!-- !! hotel type desc -->
+      <div class="form-floating mb-3">
+        <select
+          class="form-select"
+          aria-label="hotel_type_label"
+          id="hotel_type"
+          name="hotel_type"
+        >
+          <option selected>Hotel type</option>
+          <option value="deluxe">Deluxe</option>
+          <option value="standard">Standard</option>
+          <option value="budget">Budget</option>
+        </select>
+      </div>
+
+      <!-- !! hotel desc field -->
+      <div class="col">
+        <textarea
+          name="hotel_desc"
+          type="text"
+          class="form-control"
+          id="hotel_desc"
+          placeholder="Hotel description"
+          rows="4"
+          required
+        ></textarea>
+        <div class="form-floating mb-3 text-truncate">
+          <label for="hotel_desc">Hotel description</label>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-1 btn-lg">Add hotel</button>
+      </div>
+      <hr />
+      <br />
+      <!-- <p class="fs-6">
+        Already have an account?
+        <a
+          class="text-decoration-none"
+          data-bs-toggle="modal"
+          data-bs-target="#LoginModal"
+          >Login</a
+        >
+      </p> -->
+    </form>
+  </body>
+</html>

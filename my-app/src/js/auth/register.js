@@ -9,8 +9,7 @@ form_register.onsubmit = async (e) => {
   document.querySelector("#form_register button").disabled = true;
   document.querySelector("#form_register button").innerHTML =
     `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                      </div>
-                      <span>Loading...</span>`;
+    <span>Loading...</span>`;
 
   // !! get value from form
   const formData = new FormData(form_register);
@@ -41,6 +40,10 @@ form_register.onsubmit = async (e) => {
         ])
         .select();
 
+      // Enable Submit Button
+      document.querySelector("#form_register button").disabled = false;
+      document.querySelector("#form_register button").innerHTML = `Sign Up`;
+
       if (error == null) {
         successNotification("Sign up successful!", 10);
       } else {
@@ -54,8 +57,4 @@ form_register.onsubmit = async (e) => {
 
   //!! Reset Form
   form_register.reset();
-
-  //!! Enable Submit Button
-  document.querySelector("#form_register button").disabled = false;
-  document.querySelector("#form_register button").innerHTML = `Sign Up`;
 };
