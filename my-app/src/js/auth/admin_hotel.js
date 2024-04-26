@@ -20,15 +20,15 @@ form_hotel.onsubmit = async (e) => {
       {
         // !! in the db the order is contact_nuum > address > user_id > first and last name
         hotel_name: formData.get("hotel_name"),
-        hotel_city: formData.get("hotel_city"),
         hotel_location: formData.get("hotel_location"),
+        hotel_city: formData.get("hotel_city"),
         hotel_type: formData.get("hotel_type"),
         hotel_desc: formData.get("hotel_desc"),
       },
     ])
     .select();
 
-  // Enable Submit Button
+  //!! Enable Submit Button
   document.querySelector("#form_hotel button").disabled = false;
   document.querySelector("#form_hotel button").innerHTML = `Add hotel`;
 
@@ -36,7 +36,7 @@ form_hotel.onsubmit = async (e) => {
     successNotification("Hotel added!", 10);
   } else {
     errorNotification("Something went wrong, please try again later.", 10);
-    console.log(error);
+    
   }
   
   //!! Reset Form

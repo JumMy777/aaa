@@ -22,7 +22,7 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsemtqampidHlhcml1YnZjd2NuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM5MzY4MDcsImV4cCI6MjAyOTUxMjgwN30.b7nqneAN1DXhQjilH1Xs5IhAZeVN1CjtYwfRzxZ87h8"
 );
 
-// !! functionality for signup notification
+// !! functionality for notification
 // Success Notification
 function successNotification(message, seconds = 0) {
   document.querySelector(".alert-success").classList.remove("d-none");
@@ -51,7 +51,7 @@ function errorNotification(message, seconds = 0) {
   }
 }
 
-// !! end of functionality signup
+// !! end of functionality
 
 export { supabase, successNotification, errorNotification };
 

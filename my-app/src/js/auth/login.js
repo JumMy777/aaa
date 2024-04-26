@@ -23,10 +23,14 @@ form_login.onsubmit = async (e) => {
   //   !! notifcation
   if (error == null) {
     successNotification("Log in successful!", 3);
+    setTimeout(function() { //!! add timer
+      window.location.pathname = "/index.html";
+    }, 3000); // 3000 milliseconds = 3 seconds
   } else {
     errorNotification("Something went wrong, please try again later.", 10);
     console.log(error);
   }
+  
 
   //!! Reset Form
   form_login.reset();
@@ -34,5 +38,5 @@ form_login.onsubmit = async (e) => {
   //!! Enable Submit Button
   document.querySelector("#form_login button").disabled = false;
   document.querySelector("#form_login button").innerHTML = `Log in`;
-  window.location.pathname = "/index.html";
+  
 };

@@ -15,7 +15,8 @@ form_register.onsubmit = async (e) => {
   const formData = new FormData(form_register);
 
   //!! input from the form
-  if (formData.get("password") == formData.get("password_confirmation")) {
+  if (formData.get("password") == formData.get("password_confirmation")) { //!! do action below if true
+                                                                            // !! create user , and check if not null then add data, not null show notifications, reset button and refresh
     //!! create user
     const { data, error } = await supabase.auth.signUp({
       email: formData.get("email"),
@@ -40,15 +41,14 @@ form_register.onsubmit = async (e) => {
         ])
         .select();
 
-      // Enable Submit Button
-      document.querySelector("#form_register button").disabled = false;
-      document.querySelector("#form_register button").innerHTML = `Sign Up`;
-
+      // !! notification
       if (error == null) {
         successNotification("Sign up successful!", 10);
+
       } else {
         errorNotification("Something went wrong, please try again later.", 10);
         console.log(error);
+      
       }
     }
   } else {
@@ -57,4 +57,8 @@ form_register.onsubmit = async (e) => {
 
   //!! Reset Form
   form_register.reset();
+
+  //! Enable Submit Button
+  document.querySelector("#form_register button").disabled = false;
+  document.querySelector("#form_register button").innerHTML = `Sign Up`;
 };
