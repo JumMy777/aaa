@@ -81,7 +81,7 @@ form_login.onsubmit = async (e) => {
   }
 
   //!! Reset Form
-  //form_login.reset();
+  form_login.reset();
 
   //!! Enable Submit Button
   document.querySelector("#form_login button").disabled = false;

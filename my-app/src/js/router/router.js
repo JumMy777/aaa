@@ -17,16 +17,17 @@ function setRouter() {
       }
       break;
 
-    // !! redirect if not admin
+    // !! redirect if  admin
     case "/index.html": // Change this to a page where Admin has access; Add more case if there are more pages
-      if (!localStorage.getItem("role") || localStorage.getItem("role") !== "admin") {
+      if (!localStorage.getItem("role") || localStorage.getItem("role") == "admin") {
         window.location.pathname = "/admin.html";
       }
       break;
 
-      // !! redirect if not admin
-    case "/index.html": // Change this to a page where Admin has access; Add more case if there are more pages
-    if (!localStorage.getItem("role") || localStorage.getItem("role") !== "customer") {
+      // !! redirect if customer
+    case "/index.html": // Change this to a page where customer has access; Add more case if there are more pages
+   
+    if (!localStorage.getItem("role") || localStorage.getItem("role") == "customer") {
       window.location.pathname = "/index.html";
     }
     break;
