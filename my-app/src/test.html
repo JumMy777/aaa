@@ -28,134 +28,92 @@
     />
 
     <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/auth/register.js"></script>
+    <script type="module" src="./js/auth/login.js"></script>
 
     <meta name="theme-color" content="#31d53d" />
   </head>
   <body>
-    <!-- !! notification for signup -->
+    <!-- !! lnotification -->
+    <br><br> 
     <div class="alert alert-success d-none" role="alert"></div>
     <div class="alert alert-danger d-none" role="alert"></div>
     <!-- !! end of notification -->
 
-    <form id="form_register">
-      <br />
-
-      <!-- !! email field -->
-      <div class="form-floating mb-3">
-        <input
-          name="email"
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="Email"
-          required
-        />
-        <label for="email">Email</label>
-      </div>
-
-      <!-- !! password field -->
-      <div class="form-floating mb-3">
-        <input
-          name="password"
-          type="password"
-          class="form-control"
-          id="password"
-          placeholder="Password"
-          required
-        />
-        <label for="password">Password</label>
-      </div>
-
-      <!-- !! password confirmation field -->
-      <div class="form-floating mb-3">
-        <input
-          name="password_confirmation"
-          type="password"
-          class="form-control"
-          id="password_confirmation"
-          placeholder="Password confirmation"
-          required
-        />
-        <label for="password_confirmation">Password confirmation</label>
-      </div>
-
-      <!-- !! first name field -->
-      <div class="col">
-        <div class="form-floating mb-3 text-truncate">
-          <input
-            name="first_name"
-            type="text"
-            class="form-control"
-            id="first_name"
-            placeholder="First Name"
-            required
-          />
-          <label class="d-inline-block" for="first_name">First Name</label>
+    <div
+      class="container position-absolute top-50 start-50 translate-middle"
+    >
+      <div class="row">
+        <div class="col text-center">
+          <img src="./assets/icon/UwU Logo.svg" width="250px" />
         </div>
       </div>
+      <div class="row">
+        <!-- !!start of col 1 -->
+        <div class="col"></div>
+        <!-- !!end of col 1 -->
 
-      <!-- !! last name field -->
-      <div class="col">
-        <div class="form-floating mb-3 text-truncate">
-          <input
-            name="last_name"
-            type="text"
-            class="form-control"
-            id="last_name"
-            placeholder="Last Name"
-            required
-          />
-          <label for="last_name">Last Name</label>
+        <!-- !!Start of col 2 -->
+        <div class="col-9">
+          <!-- !! form start -->
+          <form id="form_login">
+            <br />
+
+            <div class="form-floating mb-3">
+              <!-- !! email login -->
+              <input
+                name="email"
+                type="text"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+                required
+              />
+              <label for="email">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <!-- !! password login -->
+              <input
+                name="password"
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Password"
+                required
+              />
+              <label for="password">Password</label>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="login" class="btn btn-1 btn-lg">
+                Login
+
+                <!--!!FIXME: this is temporary  -->
+                <!-- <a href="admin.html" class="text-decoration-none text-white" >Login</a> -->
+                <!--!! End of Fixme -->
+              </button>
+              <hr />
+            </div>
+            <br />
+            <div class="text-center">
+              <p>Not a member?</p>
+              <a
+                class="text-decoration-none"
+                data-bs-toggle="modal"
+                data-bs-target="#SignupModal"
+                >Create an account</a
+              >
+            </div>
+          </form>
+          <!-- !! form end-->
         </div>
-      </div>
 
-      <!-- !! contact field -->
-      <div class="col">
-        <div class="form-floating mb-3 text-truncate">
-          <input
-            name="contact_num"
-            type="number"
-            class="form-control"
-            id="contact_num"
-            placeholder="Contact"
-            required
-          />
-          <label for="contact_num">Contact</label>
-        </div>
-      </div>
+        <!-- !!end of col 2 -->
 
-      <!-- !! address field -->
-      <div class="col">
-        <textarea
-          name="address"
-          type="text"
-          class="form-control"
-          id="address"
-          placeholder="Address"
-          rows="4"
-          required
-        ></textarea>
-        <div class="form-floating mb-3 text-truncate">
-          <label for="address">Address</label>
-        </div>
-      </div>
-     
+        <!-- !! start of col 3 -->
+        <div class="col"></div>
 
-      <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-1 btn-lg">Sign up</button>
+        <!-- !!end of col 3 -->
       </div>
-      <hr />
-      <br />
-      <p class="fs-6">
-        Already have an account?
-        <a
-          class="text-decoration-none"
-          data-bs-toggle="modal"
-          data-bs-target="#LoginModal"
-          >Login</a
-        >
-      </p>
-    </form>
+    </div>
   </body>
 </html>

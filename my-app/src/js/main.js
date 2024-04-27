@@ -8,6 +8,10 @@ import "../scss/styles.scss";
 //import * as bootstrap from "bootstrap";
 import "bootstrap/dist/js/bootstrap.bundle";
 
+//!! import router
+
+import {setRouter} from "./router/router.js";
+
 import fq_black from "../assets/icon/faq-fill-black.svg";
 import fq_white from "../assets/icon/faq-fill-white.svg";
 import searchIcon from "../assets/icon/search-fill.svg";
@@ -16,14 +20,18 @@ import searchIcon from "../assets/icon/search-fill.svg";
 
 import { createClient } from "@supabase/supabase-js";
 
+// !! set router
+setRouter();
+
 // Create a single supabase client for interacting with your database
 const supabase = createClient(
   "https://alzkjjjbtyariubvcwcn.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsemtqampidHlhcml1YnZjd2NuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM5MzY4MDcsImV4cCI6MjAyOTUxMjgwN30.b7nqneAN1DXhQjilH1Xs5IhAZeVN1CjtYwfRzxZ87h8"
 );
 
-
 export { supabase };
+
+
 
 
 // Search functionality
