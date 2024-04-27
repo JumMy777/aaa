@@ -22,45 +22,9 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsemtqampidHlhcml1YnZjd2NuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM5MzY4MDcsImV4cCI6MjAyOTUxMjgwN30.b7nqneAN1DXhQjilH1Xs5IhAZeVN1CjtYwfRzxZ87h8"
 );
 
-// !! functionality for notification
-// Success Notification
-function successNotification(message, seconds = 0) {
-  document.querySelector(".alert-success").classList.remove("d-none");
-  document.querySelector(".alert-success").classList.add("d-block");
-  document.querySelector(".alert-success").innerHTML = message;
 
-  if (seconds != 0) {
-    setTimeout(function () {
-      document.querySelector(".alert-success").classList.remove("d-block");
-      document.querySelector(".alert-success").classList.add("d-none");
-    }, seconds * 1000);
-  }
-}
+export { supabase };
 
-// Error Notification
-function errorNotification(message, seconds = 0) {
-  document.querySelector(".alert-danger").classList.remove("d-none");
-  document.querySelector(".alert-danger").classList.add("d-block");
-  document.querySelector(".alert-danger").innerHTML = message;
-
-  if (seconds != 0) {
-    setTimeout(function () {
-      document.querySelector(".alert-danger").classList.remove("d-block");
-      document.querySelector(".alert-danger").classList.add("d-none");
-    }, seconds * 1000);
-  }
-}
-
-// !! end of functionality
-
-export { supabase, successNotification, errorNotification };
-
-//Search modal
-// var modal = document.getElementById("searchModal");
-// var input = document.getElementById("searchInput");
-// modal.addEventListener("shown.bs.modal", function () {
-//   input.focus();
-// });
 
 // Search functionality
 var words = ["Butuan", "Surigao", "Cabadbaran"];
@@ -69,63 +33,6 @@ var modalIds = {
   Surigao: "surigaoModal",
   Cabadbaran: "cabadbaranModal",
 };
-
-// $(document).ready(function () {
-//   $("#searchInput").on("input", function () {
-//     var input = $(this).val().toLowerCase();
-//     var matches = words.filter((word) => word.toLowerCase().startsWith(input));
-//     if (matches.length > 0) {
-//       var html = matches
-//         .map(
-//           (word) => `
-//           <div class="search_item col-md-4 pb-2">
-//           <div
-//             class="d-flex align-items-center"
-//             data-bs-toggle="modal"
-//             data-bs-target="#${modalIds[word]}"
-//           >
-//             <img src="${searchIcon}" alt="${word}" />
-//             <h5 class="ps-1 mt-1">${word}</h5>
-//           </div>
-//         </div>
-//       `
-//         )
-//         .join("");
-//       $("#searchResults").html(
-//         '<div class="container"><div class="row">' + html + "</div></div>"
-//       );
-//       var searchModal = new bootstrap.Modal(
-//         document.getElementById("searchModal")
-//       );
-//       searchModal.show(); // Show the modal if there are matches
-//     } else {
-//       var searchModal = bootstrap.Modal.getInstance(
-//         document.getElementById("searchModal")
-//       );
-//       if (searchModal) {
-//         searchModal.hide(); // Hide the modal if there are no matches
-//       }
-//     }
-//   });
-
-//   $(document).on("click", ".search_item", function () {
-//     var searchModal = bootstrap.Modal.getInstance(
-//       document.getElementById("searchModal")
-//     );
-//     if (searchModal) {
-//       searchModal.hide();
-//     }
-//   });
-
-//   $(".modal").on("hidden.bs.modal", function () {
-//     if ($(".modal.show").length > 0) {
-//       $("body").addClass("modal-open");
-//     } else {
-//       $("body").removeClass("modal-open");
-//       $("body").css("overflow", "auto");
-//     }
-//   });
-// });
 
 // Top-bar change on scroll
 var topBar = document.querySelector(".top-bar");

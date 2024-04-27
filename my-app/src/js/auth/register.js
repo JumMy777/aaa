@@ -1,4 +1,35 @@
-import { supabase, successNotification, errorNotification } from "../main";
+import { supabase } from "../main";
+// !! functionality for notification
+// Success Notification
+function successNotification(message, seconds = 0) {
+  document.querySelector(".signup_notif_success").classList.remove("d-none");
+  document.querySelector(".signup_notif_success").classList.add("d-block");
+  document.querySelector(".signup_notif_success").innerHTML = message;
+
+  if (seconds != 0) {
+    setTimeout(function () {
+      document.querySelector(".signup_notif_success").classList.remove("d-block");
+      document.querySelector(".signup_notif_success").classList.add("d-none");
+    }, seconds * 1000);
+  }
+}
+
+// Error Notification
+function errorNotification(message, seconds = 0) {
+  document.querySelector(".signup_notif_error").classList.remove("d-none");
+  document.querySelector(".signup_notif_error").classList.add("d-block");
+  document.querySelector(".signup_notif_error").innerHTML = message;
+
+  if (seconds != 0) {
+    setTimeout(function () {
+      document.querySelector(".signup_notif_error").classList.remove("d-block");
+      document.querySelector(".signup_notif_error").classList.add("d-none");
+    }, seconds * 1000);
+  }
+}
+
+// !! end of functionality
+
 
 const form_register = document.getElementById("form_register");
 
