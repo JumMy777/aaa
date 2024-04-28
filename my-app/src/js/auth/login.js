@@ -1,4 +1,5 @@
 import { supabase } from "../main";
+
 // !! functionality for notification
 // Success Notification
 function successNotification(message, seconds = 0) {
@@ -27,7 +28,6 @@ function errorNotification(message, seconds = 0) {
     }, seconds * 1000);
   }
 }
-
 // !! end of functionality
 
 const form_login = document.getElementById("form_login");
@@ -37,8 +37,9 @@ form_login.onsubmit = async (e) => {
 
   //!! Disable the submit button
   document.querySelector("#form_login button").disabled = true;
-  document.querySelector("#form_login button").innerHTML =
-    `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  document.querySelector(
+    "#form_login button"
+  ).innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
                       </div>
                       <span>Loading...</span>`;
 
@@ -58,14 +59,17 @@ form_login.onsubmit = async (e) => {
     localStorage.setItem("access_token", session.access_token);
     localStorage.setItem("refresh_token", session.refresh_token);
 
-    // !! get role
     let { data: user_info, error } = await supabase
       .from("user_info")
       .select("role")
       .eq("user_id", user.id);
-    console.log(user_info);
-    // !! store role
-    localStorage.setItem("role", user_info.role);
+
+    if (user_info.length > 0) {
+      // !! store role
+      localStorage.setItem("role", user_info[0].role);
+    } else {
+      console.log("No user info found for this user");
+    }
   }
 
   //   !! notifcation
