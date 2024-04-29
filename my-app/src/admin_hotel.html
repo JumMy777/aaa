@@ -34,7 +34,10 @@
   </head>
   <body>
     <!-- !! notification for signup -->
-    <div class="alert alert-success hotel_notif-success d-none" role="alert"></div>
+    <div
+      class="alert alert-success hotel_notif-success d-none"
+      role="alert"
+    ></div>
     <div class="alert alert-danger hotel-notif-error d-none" role="alert"></div>
     <!-- !! end of notification -->
 
@@ -68,16 +71,21 @@
       </div>
 
       <!-- !! hotel city field -->
+
       <div class="form-floating mb-3">
-        <input
-          name="hotel_city"
-          type="text"
-          class="form-control"
+        <select
+          class="form-select"
+          aria-label="hotel_city_label"
           id="hotel_city"
-          placeholder="Hotel city"
+          name="hotel_city"
           required
-        />
-        <label for="hotel_city">Hotel city</label>
+        >
+          <option value="" selected disabled>Hotel city</option>
+          <!-- Empty option -->
+          <option value="Butuan City">Butuan City</option>
+          <option value="Cabadbaran City">Cabadbaran City</option>
+          <option value="Surigao City">Surigao City</option>
+        </select>
       </div>
 
       <!-- !! hotel type desc -->
@@ -116,15 +124,6 @@
       </div>
       <hr />
       <br />
-      <!-- <p class="fs-6">
-        Already have an account?
-        <a
-          class="text-decoration-none"
-          data-bs-toggle="modal"
-          data-bs-target="#LoginModal"
-          >Login</a
-        >
-      </p> -->
     </form>
   </body>
 </html>

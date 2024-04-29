@@ -12,7 +12,7 @@ function setRouter() {
         }
         // If the user is an admin, redirect them to the admin page
         else if (localStorage.getItem("role") == "admin") {
-          window.location.pathname = "/admin.html";
+        //  window.location.pathname = "/admin.html";
         }
         // If the user is a hadmin, redirect them to the hadmin page
         else if (localStorage.getItem("role") == "hadmin") {
@@ -46,7 +46,7 @@ function setRouter() {
     default:
       // If the user is an admin, redirect them to the admin page
       if (localStorage.getItem("role") == "admin") {
-        window.location.pathname = "/admin.html";
+        //window.location.pathname = "/admin.html";
       }
     // If the user is a hadmin, redirect them to the hadmin page
     // else if (localStorage.getItem("role") == "hadmin") {

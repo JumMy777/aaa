@@ -8,7 +8,9 @@ function successNotification(message, seconds = 0) {
 
   if (seconds != 0) {
     setTimeout(function () {
-      document.querySelector(".signup_notif_success").classList.remove("d-block");
+      document
+        .querySelector(".signup_notif_success")
+        .classList.remove("d-block");
       document.querySelector(".signup_notif_success").classList.add("d-none");
     }, seconds * 1000);
   }
@@ -30,7 +32,6 @@ function errorNotification(message, seconds = 0) {
 
 // !! end of functionality
 
-
 const form_register = document.getElementById("form_register");
 
 form_register.onsubmit = async (e) => {
@@ -46,8 +47,9 @@ form_register.onsubmit = async (e) => {
   const formData = new FormData(form_register);
 
   //!! input from the form
-  if (formData.get("password") == formData.get("password_confirmation")) { //!! do action below if true
-                                                                            // !! create user , and check if not null then add data, not null show notifications, reset button and refresh
+  if (formData.get("password") == formData.get("password_confirmation")) {
+    //!! do action below if true
+    // !! create user , and check if not null then add data, not null show notifications, reset button and refresh
     //!! create user
     const { data, error } = await supabase.auth.signUp({
       email: formData.get("email"),
@@ -62,7 +64,6 @@ form_register.onsubmit = async (e) => {
         .from("user_info")
         .insert([
           {
-            // !! in the db the order is contact_nuum > address > user_id > first and last name
             first_name: formData.get("first_name"),
             last_name: formData.get("last_name"),
             contact_num: formData.get("contact_num"),
@@ -75,11 +76,9 @@ form_register.onsubmit = async (e) => {
       // !! notification
       if (error == null) {
         successNotification("Sign up successful!", 10);
-
       } else {
         errorNotification("Something went wrong, please try again later.", 10);
         console.log(error);
-      
       }
     }
   } else {

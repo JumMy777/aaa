@@ -1,74 +1,113 @@
 import { supabase } from "../main";
-// !! functionality for notification
-// Success Notification
+
+// Function for success notification
 function successNotification(message, seconds = 0) {
-  document.querySelector(".hotel_notif-success").classList.remove("d-none");
-  document.querySelector(".hotel_notif-success").classList.add("d-block");
-  document.querySelector(".hotel_notif-success").innerHTML = message;
+  const successNotificationElement = document.querySelector(".hotel_notif-success");
+  successNotificationElement.classList.remove("d-none");
+  successNotificationElement.classList.add("d-block");
+  successNotificationElement.innerHTML = message;
 
-  if (seconds != 0) {
+  if (seconds !== 0) {
     setTimeout(function () {
-      document.querySelector(".hotel_notif-success").classList.remove("d-block");
-      document.querySelector(".hotel_notif-success").classList.add("d-none");
+      successNotificationElement.classList.remove("d-block");
+      successNotificationElement.classList.add("d-none");
     }, seconds * 1000);
   }
 }
 
-// Error Notification
+// Function for error notification
 function errorNotification(message, seconds = 0) {
-  document.querySelector(".hotel-notif-error").classList.remove("d-none");
-  document.querySelector(".hotel-notif-error").classList.add("d-block");
-  document.querySelector(".hotel-notif-error").innerHTML = message;
+  const errorNotificationElement = document.querySelector(".hotel-notif-error");
+  errorNotificationElement.classList.remove("d-none");
+  errorNotificationElement.classList.add("d-block");
+  errorNotificationElement.innerHTML = message;
 
-  if (seconds != 0) {
+  if (seconds !== 0) {
     setTimeout(function () {
-      document.querySelector(".hotel-notif-error").classList.remove("d-block");
-      document.querySelector(".hotel-notif-error").classList.add("d-none");
+      errorNotificationElement.classList.remove("d-block");
+      errorNotificationElement.classList.add("d-none");
     }, seconds * 1000);
   }
 }
 
-// !! end of functionality
+// Function to generate unique ID
+async function generateUniqueID(cityId) {
+  let uniqueId = cityId;
+  let counter = 1;
 
-const form_hotel = document.getElementById("form_hotel");
+  // Check if the ID already exists
+  const { data, error } = await supabase
+    .from("hotel")
+    .select("id")
+    .like("id", `${cityId}%`);
 
-form_hotel.onsubmit = async (e) => {
+  if (data && data.length > 0) {
+    // ID already exists, find the next available one
+    while (true) {
+      const newId = `${cityId}-${counter.toString().padStart(2, "0")}`;
+      const idExists = data.some(item => item.id === newId);
+      if (!idExists) {
+        uniqueId = newId;
+        break;
+      }
+      counter++;
+    }
+  }
+
+  return uniqueId;
+}
+
+// Get the form element
+const formHotel = document.getElementById("form_hotel");
+
+// Submit event handler for the form
+formHotel.onsubmit = async (e) => {
   e.preventDefault(); // Prevent the default form submission behavior
 
-  //!! Disable the submit button
-  document.querySelector("#form_hotel button").disabled = true;
-  document.querySelector("#form_hotel button").innerHTML =
-    `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  // Disable the submit button and show loading indicator
+  const submitButton = document.querySelector("#form_hotel button");
+  submitButton.disabled = true;
+  submitButton.innerHTML = `
+    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
     <span>Loading...</span>`;
 
-  // !! get value from form
-  const formData = new FormData(form_hotel);
+  // Get form data
+  const formData = new FormData(formHotel);
 
+  // Generate ID based on hotel city
+  const hotelCity = formData.get("hotel_city");
+  const cityId = hotelCity.substring(0, 3).toLowerCase(); // Get first three characters and convert to lowercase
+
+  // Generate unique ID
+  const uniqueId = await generateUniqueID(cityId);
+
+  // Insert data into the 'hotel' table
   const { data, error } = await supabase
     .from("hotel")
     .insert([
       {
-        // !! in the db the order is contact_nuum > address > user_id > first and last name
+        id: uniqueId,
         hotel_name: formData.get("hotel_name"),
         hotel_location: formData.get("hotel_location"),
-        hotel_city: formData.get("hotel_city"),
+        hotel_city: hotelCity,
         hotel_type: formData.get("hotel_type"),
         hotel_desc: formData.get("hotel_desc"),
       },
     ])
     .select();
 
-  //!! Enable Submit Button
-  document.querySelector("#form_hotel button").disabled = false;
-  document.querySelector("#form_hotel button").innerHTML = `Add hotel`;
-
-  if (error == null) {
+  // Handle success or error
+  if (error === null) {
     successNotification("Hotel added!", 10);
   } else {
     errorNotification("Something went wrong, please try again later.", 10);
-    
+    console.log(error);
   }
-  
-  //!! Reset Form
-  form_hotel.reset();
+
+  // Reset the form
+  formHotel.reset();
+
+  // Enable the submit button
+  submitButton.disabled = false;
+  submitButton.innerHTML = `Add hotel`;
 };
