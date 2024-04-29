@@ -33,7 +33,7 @@ btn_logout.onclick = async () => {
   let { error } = await supabase.auth.signOut();
 
   if (error == null) {
-    successNotification("Log out successfully!",3 );
+    successNotification("Log out successful!",3 );
     // ! clear local storage
     localStorage.clear();
 

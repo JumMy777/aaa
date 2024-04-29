@@ -30,6 +30,7 @@
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/auth/register.js"></script>
     <script type="module" src="./js/auth/login.js"></script>
+    <script type="module" src="./js/system/account.js"></script>
 
     <meta name="theme-color" content="#31d53d" />
   </head>
@@ -38,29 +39,17 @@
       <br /><br /><br />
       <!-- Header -->
       <div class="container">
-        <div class="row">
-          <div class="col-md-2 col-3">
+        <div class="d-flex align-items-center">
+          <div class="">
             <img
               src="./assets/imgs/Account.png"
               class="rounded-circle acc_img"
               alt=""
             />
           </div>
-          <div class="col-md-10 col-9 my-auto">
-            <h2 class="fw-bold text-white">
-              <a
-                class="text-decoration-none text-white"
-                data-bs-toggle="modal"
-                data-bs-target="#LoginModal"
-                >Login</a
-              >
-              or
-              <a
-                class="text-decoration-none text-white"
-                data-bs-toggle="modal"
-                data-bs-target="#SignupModal"
-                >Sign up</a
-              >
+          <div class="px-3">
+            <h2 class="mb-0 fw-bold text-white" id="user-name">
+              Login or Signup
             </h2>
           </div>
         </div>
@@ -125,13 +114,22 @@
             </div>
           </div>
           <hr class="border-dark-subtle" />
-          <div class="row" data-bs-toggle="modal" data-bs-target="#LoginModal">
+          <div class="row remove_modal" data-bs-toggle="modal" data-bs-target="#LoginModal">
             <div class="col acc_icon">
-              <h5>
-                <i class="bi bi-box-arrow-left pe-3"></i> Login<i
-                  class="bi bi-chevron-right float-end"
-                ></i>
+              <h5 class="btn_hide">
+                <i class="bi bi-box-arrow-left pe-3"></i> Login
+                <i class="bi bi-chevron-right float-end"></i>
               </h5>
+
+              <div class="d-none btn_show"> 
+                <h5>
+                  <i class="bi bi-box-arrow-left pe-3"></i> Logout
+                  <i class="bi bi-chevron-right float-end"></i>
+                </h5>
+              </div>
+              
+
+
             </div>
           </div>
         </div>
@@ -160,7 +158,7 @@
           </div>
           <div class="modal-body position-relative">
             <!-- !! lnotification -->
-            <br><br> 
+            <br /><br />
             <div class="alert alert-success d-none" role="alert"></div>
             <div class="alert alert-danger d-none" role="alert"></div>
             <!-- !! end of notification -->
@@ -212,10 +210,6 @@
                     <div class="d-grid gap-2">
                       <button type="login" class="btn btn-1 btn-lg">
                         Login
-
-                        <!--!!FIXME: this is temporary  -->
-                        <!-- <a href="admin.html" class="text-decoration-none text-white" >Login</a> -->
-                        <!--!! End of Fixme -->
                       </button>
                       <hr />
                     </div>
@@ -266,11 +260,17 @@
           </div>
           <div class="modal-body position-relative">
             <!-- !! snotification -->
-            <br>
-            <div class="alert alert-success signup_notif_success d-none" role="alert"></div>
-            <div class="alert alert-danger signup_notif_error d-none" role="alert"></div>
+            <br />
+            <div
+              class="alert alert-success signup_notif_success d-none"
+              role="alert"
+            ></div>
+            <div
+              class="alert alert-danger signup_notif_error d-none"
+              role="alert"
+            ></div>
             <!-- !! end of notification -->
-            
+
             <div class="container">
               <div class="row">
                 <div class="col text-center">
