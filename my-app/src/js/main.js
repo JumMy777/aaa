@@ -10,7 +10,7 @@ import "bootstrap/dist/js/bootstrap.bundle";
 
 //!! import router
 
-import {setRouter} from "./router/router.js";
+import { setRouter } from "./router/router.js";
 
 import fq_black from "../assets/icon/faq-fill-black.svg";
 import fq_white from "../assets/icon/faq-fill-white.svg";
@@ -31,9 +31,6 @@ const supabase = createClient(
 
 export { supabase };
 
-
-
-
 // Search functionality
 var words = ["Butuan", "Surigao", "Cabadbaran"];
 var modalIds = {
@@ -46,7 +43,10 @@ var modalIds = {
 var topBar = document.querySelector(".top-bar");
 var searchBox = document.querySelector(".search_box");
 var introLogo = document.querySelector(".intro-logo");
+
+// ??
 // var introLogoPosition = introLogo.getBoundingClientRect().top + window.scrollY;
+//?? idk that code above do
 
 window.addEventListener("scroll", function () {
   var scrollPosition = window.scrollY;
