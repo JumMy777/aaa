@@ -2,7 +2,9 @@ import { supabase } from "../main";
 
 // Function for success notification
 function successNotification(message, seconds = 0) {
-  const successNotificationElement = document.querySelector(".hotel_notif-success");
+  const successNotificationElement = document.querySelector(
+    ".hotel_notif-success"
+  );
   successNotificationElement.classList.remove("d-none");
   successNotificationElement.classList.add("d-block");
   successNotificationElement.innerHTML = message;
@@ -45,7 +47,7 @@ async function generateUniqueID(cityId) {
     // ID already exists, find the next available one
     while (true) {
       const newId = `${cityId}-${counter.toString().padStart(2, "0")}`;
-      const idExists = data.some(item => item.id === newId);
+      const idExists = data.some((item) => item.id === newId);
       if (!idExists) {
         uniqueId = newId;
         break;
@@ -92,6 +94,9 @@ formHotel.onsubmit = async (e) => {
         hotel_city: hotelCity,
         hotel_type: formData.get("hotel_type"),
         hotel_desc: formData.get("hotel_desc"),
+        hotel_street: formData.get("hotel_street"),
+        price_range: formData.get("price_range"),
+        hotel_rate: formData.get("hotel_rate"),
       },
     ])
     .select();

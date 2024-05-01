@@ -318,103 +318,146 @@
             ></button>
           </div>
           <div class="modal-body gray_bg">
+            <!-- !! notification for signup -->
+            <div
+              class="alert alert-success hotel_notif-success d-none"
+              role="alert"
+            ></div>
+            <div
+              class="alert alert-danger hotel-notif-error d-none"
+              role="alert"
+            ></div>
+            <!-- !! end of notification -->
 
-             <!-- !! notification for signup -->
-    <div
-    class="alert alert-success hotel_notif-success d-none"
-    role="alert"
-  ></div>
-  <div class="alert alert-danger hotel-notif-error d-none" role="alert"></div>
-  <!-- !! end of notification -->
+            <form id="form_hotel">
+              <br />
 
-  <form id="form_hotel">
-    <br />
+              <!-- !! hotel name field -->
+              <div class="form-floating mb-3">
+                <input
+                  name="hotel_name"
+                  type="text"
+                  class="form-control"
+                  id="hotel_name"
+                  placeholder="Hotel name"
+                  required
+                />
+                <label for="hotel_name">Hotel name</label>
+              </div>
 
-    <!-- !! hotel name field -->
-    <div class="form-floating mb-3">
-      <input
-        name="hotel_name"
-        type="text"
-        class="form-control"
-        id="hotel_name"
-        placeholder="Hotel name"
-        required
-      />
-      <label for="hotel_name">Hotel name</label>
-    </div>
+              <!-- !! hotel location field -->
+              <div class="form-floating mb-3">
+                <input
+                  name="hotel_location"
+                  type="text"
+                  class="form-control"
+                  id="hotel_location"
+                  placeholder="Hotel location"
+                  required
+                />
+                <label for="hotel_type">Hotel location</label>
+              </div>
 
-    <!-- !! hotel location field -->
-    <div class="form-floating mb-3">
-      <input
-        name="hotel_location"
-        type="text"
-        class="form-control"
-        id="hotel_location"
-        placeholder="Hotel location"
-        required
-      />
-      <label for="hotel_type">Hotel location</label>
-    </div>
+              <!-- !! hotel city field -->
 
-    <!-- !! hotel city field -->
+              <div class="form-floating mb-3">
+                <select
+                  class="form-select"
+                  aria-label="hotel_city_label"
+                  id="hotel_city"
+                  name="hotel_city"
+                  required
+                >
+                  <option value="" selected disabled>Hotel city</option>
+                  <!-- Empty option -->
+                  <option value="Butuan City">Butuan City</option>
+                  <option value="Cabadbaran City">Cabadbaran City</option>
+                  <option value="Surigao City">Surigao City</option>
+                </select>
+              </div>
 
-    <div class="form-floating mb-3">
-      <select
-        class="form-select"
-        aria-label="hotel_city_label"
-        id="hotel_city"
-        name="hotel_city"
-        required
-      >
-        <option value="" selected disabled>Hotel city</option>
-        <!-- Empty option -->
-        <option value="Butuan City">Butuan City</option>
-        <option value="Cabadbaran City">Cabadbaran City</option>
-        <option value="Surigao City">Surigao City</option>
-      </select>
-    </div>
+              <!-- !! hotel type desc -->
+              <div class="form-floating mb-3">
+                <select
+                  class="form-select"
+                  aria-label="hotel_type_label"
+                  id="hotel_type"
+                  name="hotel_type"
+                  required
+                >
+                  <option value="" selected disabled>Hotel type</option>
+                  <!-- Empty option -->
+                  <option value="deluxe">Deluxe</option>
+                  <option value="standard">Standard</option>
+                  <option value="budget">Budget</option>
+                </select>
+              </div>
 
-    <!-- !! hotel type desc -->
-    <div class="form-floating mb-3">
-      <select
-        class="form-select"
-        aria-label="hotel_type_label"
-        id="hotel_type"
-        name="hotel_type"
-        required
-      >
-        <option value="" selected disabled>Hotel type</option>
-        <!-- Empty option -->
-        <option value="deluxe">Deluxe</option>
-        <option value="standard">Standard</option>
-        <option value="budget">Budget</option>
-      </select>
-    </div>
+              <!-- !! hotel Street field -->
+              <div class="form-floating mb-3">
+                <input
+                  name="hotel_street"
+                  type="text"
+                  class="form-control"
+                  id="hotel_street"
+                  placeholder="Hotel Street"
+                  required
+                />
+                <label for="hotel_type">Hotel Street</label>
+              </div>
 
-    <!-- !! hotel desc field -->
-    <div class="col">
-      <textarea
-        name="hotel_desc"
-        type="text"
-        class="form-control"
-        id="hotel_desc"
-        placeholder="Hotel description"
-        rows="4"
-        required
-      ></textarea>
-      <div class="form-floating mb-3 text-truncate">
-        <label for="hotel_desc">Hotel description</label>
-      </div>
-    </div>
+              <!-- !! price range field -->
+              <div class="form-floating mb-3">
+                <input
+                  name="price_range"
+                  type="number"
+                  class="form-control"
+                  id="price_range"
+                  placeholder="Price range"
+                  required
+                />
+                <label for="hotel_type">Price range</label>
+              </div>
 
-    <div class="d-grid gap-2">
-      <button type="submit" class="btn btn-1 btn-lg">Add hotel</button>
-    </div>
-    <hr />
-    <br />
-  </form>
+              <!-- !! hotel rate field -->
+              <div class="form-floating mb-3">
+                <input
+                  name="hotel_rate"
+                  type="number"
+                  class="form-control"
+                  id="hotel_rate"
+                  placeholder="Hotel Rate"
+                  required
+                />
+                <label for="hotel_type">Hotel Rate</label>
+              </div>
+
+
+              <!-- !! hotel desc field -->
+              <div class="col">
+                <textarea
+                  name="hotel_desc"
+                  type="text"
+                  class="form-control"
+                  id="hotel_desc"
+                  placeholder="Hotel description"
+                  rows="4"
+                  required
+                ></textarea>
+                <div class="form-floating mb-3 text-truncate">
+                  <label for="hotel_desc">Hotel description</label>
+                </div>
+              </div>
+
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-1 btn-lg">
+                  Add hotel
+                </button>
+              </div>
+              <hr />
+              <br />
+            </form>
           </div>
-
         </div>
       </div>
     </div>
