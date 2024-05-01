@@ -33,6 +33,7 @@
     />
 
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/auth/admin_hotel.js"></script>
     <script type="module" src="./js/system/admin.js"></script>
 
     <meta name="theme-color" content="#31d53d" />
@@ -119,7 +120,7 @@
             </div>
           </div>
           <hr class="border-dark-subtle" />
-          <div class="row" data-bs-toggle="modal" data-bs-target="#hotels">
+          <div class="row" data-bs-toggle="modal" data-bs-target="#add_hotel">
             <div class="col acc_icon">
               <h5>
                 <i class="bi bi-buildings pe-3"></i> Hotels<i
@@ -297,6 +298,128 @@
       </div>
     </div>
 
+    <!-- ! adding hotel modal -->
+    <div
+      class="modal"
+      id="add_hotel"
+      tabindex="-1"
+      aria-labelledby="add_hotel_label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header container">
+            <h1 class="modal-title fs-5" id="add_hotel">Add a hotel</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body gray_bg">
+
+             <!-- !! notification for signup -->
+    <div
+    class="alert alert-success hotel_notif-success d-none"
+    role="alert"
+  ></div>
+  <div class="alert alert-danger hotel-notif-error d-none" role="alert"></div>
+  <!-- !! end of notification -->
+
+  <form id="form_hotel">
+    <br />
+
+    <!-- !! hotel name field -->
+    <div class="form-floating mb-3">
+      <input
+        name="hotel_name"
+        type="text"
+        class="form-control"
+        id="hotel_name"
+        placeholder="Hotel name"
+        required
+      />
+      <label for="hotel_name">Hotel name</label>
+    </div>
+
+    <!-- !! hotel location field -->
+    <div class="form-floating mb-3">
+      <input
+        name="hotel_location"
+        type="text"
+        class="form-control"
+        id="hotel_location"
+        placeholder="Hotel location"
+        required
+      />
+      <label for="hotel_type">Hotel location</label>
+    </div>
+
+    <!-- !! hotel city field -->
+
+    <div class="form-floating mb-3">
+      <select
+        class="form-select"
+        aria-label="hotel_city_label"
+        id="hotel_city"
+        name="hotel_city"
+        required
+      >
+        <option value="" selected disabled>Hotel city</option>
+        <!-- Empty option -->
+        <option value="Butuan City">Butuan City</option>
+        <option value="Cabadbaran City">Cabadbaran City</option>
+        <option value="Surigao City">Surigao City</option>
+      </select>
+    </div>
+
+    <!-- !! hotel type desc -->
+    <div class="form-floating mb-3">
+      <select
+        class="form-select"
+        aria-label="hotel_type_label"
+        id="hotel_type"
+        name="hotel_type"
+        required
+      >
+        <option value="" selected disabled>Hotel type</option>
+        <!-- Empty option -->
+        <option value="deluxe">Deluxe</option>
+        <option value="standard">Standard</option>
+        <option value="budget">Budget</option>
+      </select>
+    </div>
+
+    <!-- !! hotel desc field -->
+    <div class="col">
+      <textarea
+        name="hotel_desc"
+        type="text"
+        class="form-control"
+        id="hotel_desc"
+        placeholder="Hotel description"
+        rows="4"
+        required
+      ></textarea>
+      <div class="form-floating mb-3 text-truncate">
+        <label for="hotel_desc">Hotel description</label>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-1 btn-lg">Add hotel</button>
+    </div>
+    <hr />
+    <br />
+  </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- !! end hotel add modal -->
     <script>
       var ctx = document.getElementById("salesChart").getContext("2d");
       var salesChart = new Chart(ctx, {
