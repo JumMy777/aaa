@@ -1,35 +1,32 @@
-import { supabase } from "../main";
+import { supabase, Toastify} from "../main";
 // !! functionality for notification
-// Success Notification
-function successNotification(message, seconds = 0) {
-  document.querySelector(".signup_notif_success").classList.remove("d-none");
-  document.querySelector(".signup_notif_success").classList.add("d-block");
-  document.querySelector(".signup_notif_success").innerHTML = message;
-
-  if (seconds != 0) {
-    setTimeout(function () {
-      document
-        .querySelector(".signup_notif_success")
-        .classList.remove("d-block");
-      document.querySelector(".signup_notif_success").classList.add("d-none");
-    }, seconds * 1000);
-  }
+/// Success Notification
+function successNotification(message) {
+  Toastify({
+    text: message,
+    duration: 3000,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    style: {
+      background:
+        "linear-gradient(90deg, rgba(0,150,199,1) 25%, rgba(44,168,209,1) 60%, rgba(82,184,217,1) 90%)",
+    },
+  }).showToast();
 }
 
 // Error Notification
-function errorNotification(message, seconds = 0) {
-  document.querySelector(".signup_notif_error").classList.remove("d-none");
-  document.querySelector(".signup_notif_error").classList.add("d-block");
-  document.querySelector(".signup_notif_error").innerHTML = message;
-
-  if (seconds != 0) {
-    setTimeout(function () {
-      document.querySelector(".signup_notif_error").classList.remove("d-block");
-      document.querySelector(".signup_notif_error").classList.add("d-none");
-    }, seconds * 1000);
-  }
+function errorNotification(message) {
+  Toastify({
+    text: message,
+    duration: 10000,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    style: {
+      background:
+        "linear-gradient(90deg, rgba(187,10,26,1) 15%, rgba(226,37,54,1) 65%, rgba(255,64,81,1) 90%)",
+    },
+  }).showToast();
 }
-
 // !! end of functionality
 
 const form_register = document.getElementById("form_register");

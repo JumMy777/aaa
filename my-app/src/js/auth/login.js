@@ -1,32 +1,32 @@
-import { supabase } from "../main";
+import { supabase, Toastify } from "../main";
 
 // !! functionality for notification
 // Success Notification
-function successNotification(message, seconds = 0) {
-  document.querySelector(".alert-success").classList.remove("d-none");
-  document.querySelector(".alert-success").classList.add("d-block");
-  document.querySelector(".alert-success").innerHTML = message;
-
-  if (seconds != 0) {
-    setTimeout(function () {
-      document.querySelector(".alert-success").classList.remove("d-block");
-      document.querySelector(".alert-success").classList.add("d-none");
-    }, seconds * 1000);
-  }
+function successNotification(message) {
+  Toastify({
+    text: message,
+    duration: 3000,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    style: {
+      background:
+        "linear-gradient(90deg, rgba(0,150,199,1) 25%, rgba(44,168,209,1) 60%, rgba(82,184,217,1) 90%)",
+    },
+  }).showToast();
 }
 
 // Error Notification
-function errorNotification(message, seconds = 0) {
-  document.querySelector(".alert-danger").classList.remove("d-none");
-  document.querySelector(".alert-danger").classList.add("d-block");
-  document.querySelector(".alert-danger").innerHTML = message;
-
-  if (seconds != 0) {
-    setTimeout(function () {
-      document.querySelector(".alert-danger").classList.remove("d-block");
-      document.querySelector(".alert-danger").classList.add("d-none");
-    }, seconds * 1000);
-  }
+function errorNotification(message) {
+  Toastify({
+    text: message,
+    duration: 10000,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    style: {
+      background:
+        "linear-gradient(90deg, rgba(187,10,26,1) 15%, rgba(226,37,54,1) 65%, rgba(255,64,81,1) 90%)",
+    },
+  }).showToast();
 }
 // !! end of functionality
 
@@ -37,13 +37,12 @@ form_login.onsubmit = async (e) => {
 
   //!! Disable the submit button
   document.querySelector("#form_login button").disabled = true;
-  document.querySelector(
-    "#form_login button"
-  ).innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  document.querySelector("#form_login button").innerHTML =
+    `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
                       </div>
                       <span>Loading...</span>`;
 
-  // !! get value from form
+  // Get value from form
   const formData = new FormData(form_login);
 
   let { data, error } = await supabase.auth.signInWithPassword({
@@ -72,19 +71,25 @@ form_login.onsubmit = async (e) => {
     }
   }
 
-  //   !! notifcation
+  // Notification
   if (error == null) {
     successNotification("Log in successful!", 3);
     setTimeout(function () {
-      //!! add timer
       window.location.pathname = "/index.html";
     }, 3000); // 3000 milliseconds = 3 seconds
   } else {
-    errorNotification("Something went wrong, please try again later.", 10);
+    // Error handling
+    let errorMessage = "Something went wrong, please try again later.";
+
+    if (error.message.includes("Invalid login credentials")) {
+      errorMessage = "Wrong password or invalid credentials.";
+    }
+
+    errorNotification(errorMessage, 10);
     console.log(error);
   }
 
-  //!! Reset Form
+  // Reset Form
   form_login.reset();
 
   //!! Enable Submit Button

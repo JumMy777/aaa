@@ -1,31 +1,50 @@
-import { supabase } from "../main";
-// !! functionality for notification
-// Success Notification
-function successNotification(message, seconds = 0) {
-  document.querySelector(".alert-success").classList.remove("d-none");
-  document.querySelector(".alert-success").classList.add("d-block");
-  document.querySelector(".alert-success").innerHTML = message;
+import { supabase, Toastify } from "../main";
+// Load the user's information
+getUserInfo();
 
-  if (seconds != 0) {
-    setTimeout(function () {
-      document.querySelector(".alert-success").classList.remove("d-block");
-      document.querySelector(".alert-success").classList.add("d-none");
-    }, seconds * 1000);
+// Get the user's information
+async function getUserInfo() {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // If the user is logged in, get the user's information
+  if (user != null) {
+    let { data: user_info, error } = await supabase
+      .from("user_info")
+      .select("first_name, last_name, address, contact_num")
+      .eq("user_id", user.id);
+    console.log(user_info);
   }
 }
 
-// Error Notification
-function errorNotification(message, seconds = 0) {
-  document.querySelector(".alert-danger").classList.remove("d-none");
-  document.querySelector(".alert-danger").classList.add("d-block");
-  document.querySelector(".alert-danger").innerHTML = message;
+// !! functionality for notification
+// Success Notification
+function successNotification(message) {
+  Toastify({
+    text: message,
+    duration: 3000,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    style: {
+      background:
+        "linear-gradient(90deg, rgba(0,150,199,1) 25%, rgba(44,168,209,1) 60%, rgba(82,184,217,1) 90%)",
+    },
+  }).showToast();
+}
 
-  if (seconds != 0) {
-    setTimeout(function () {
-      document.querySelector(".alert-danger").classList.remove("d-block");
-      document.querySelector(".alert-danger").classList.add("d-none");
-    }, seconds * 1000);
-  }
+// Error Notification
+function errorNotification(message) {
+  Toastify({
+    text: message,
+    duration: 10000,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    style: {
+      background:
+        "linear-gradient(90deg, rgba(187,10,26,1) 15%, rgba(226,37,54,1) 65%, rgba(255,64,81,1) 90%)",
+    },
+  }).showToast();
 }
 
 const btn_logout = document.getElementById("btn_logout");
@@ -33,12 +52,12 @@ btn_logout.onclick = async () => {
   let { error } = await supabase.auth.signOut();
 
   if (error == null) {
-    successNotification("Log out successful!",3 );
+    successNotification("Log out successful!", 3);
     // ! clear local storage
     localStorage.clear();
 
     // ! redirect to index.html
-    window.location.pathname = "/"; 
+    window.location.pathname = "/";
   } else {
     errorNotification("Log out failed!", 3);
   }
