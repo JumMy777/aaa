@@ -41,11 +41,6 @@
   <body class="gray_bg">
     <div class="container-fluid acc_bg">
       <br />
-
-      <!-- !! lnotification -->
-      <div class="alert alert-success d-none" role="alert"></div>
-      <div class="alert alert-danger d-none" role="alert"></div>  
-      <!-- !! end of notification -->
       <!-- Admin Profile -->
       <div class="container">
         <div class="d-flex align-items-center">
@@ -119,8 +114,8 @@
               </h5>
             </div>
           </div>
-          <hr class="border-dark-subtle" />
-          <div class="row" data-bs-toggle="modal" data-bs-target="#add_hotel">
+          <hr class="border-dark-subtle" id="hide_have_hotel"/>
+          <div class="row" data-bs-toggle="modal" data-bs-target="#add_hotel" id="hide_have_hotel">
             <div class="col acc_icon">
               <h5>
                 <i class="bi bi-buildings pe-3"></i> Hotels<i
@@ -318,17 +313,6 @@
             ></button>
           </div>
           <div class="modal-body gray_bg">
-            <!-- !! notification for signup -->
-            <div
-              class="alert alert-success hotel_notif-success d-none"
-              role="alert"
-            ></div>
-            <div
-              class="alert alert-danger hotel-notif-error d-none"
-              role="alert"
-            ></div>
-            <!-- !! end of notification -->
-
             <form id="form_hotel">
               <br />
 

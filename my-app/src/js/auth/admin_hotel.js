@@ -1,6 +1,6 @@
-import { supabase, Toastify} from "../main";
-// ! notifcation
-// Success Notification
+import { supabase, Toastify } from "../main";
+
+// Function for success notification
 function successNotification(message) {
   Toastify({
     text: message,
@@ -14,7 +14,7 @@ function successNotification(message) {
   }).showToast();
 }
 
-// Error Notification
+// Function for error notification
 function errorNotification(message) {
   Toastify({
     text: message,
@@ -28,14 +28,29 @@ function errorNotification(message) {
   }).showToast();
 }
 
-// Function to check if admin already has a hotel
-async function adminHasHotel(adminId) {
+// Function to generate unique ID
+async function generateUniqueID(cityId) {
+  let uniqueId = cityId;
+  let counter = 1;
+
   const { data, error } = await supabase
     .from("hotel")
     .select("id")
-    .eq("admin_id", adminId);
+    .like("id", `${cityId}%`);
 
-  return data.length > 0;
+  if (data && data.length > 0) {
+    while (true) {
+      const newId = `${cityId}-${counter.toString().padStart(2, "0")}`;
+      const idExists = data.some((item) => item.id === newId);
+      if (!idExists) {
+        uniqueId = newId;
+        break;
+      }
+      counter++;
+    }
+  }
+
+  return uniqueId;
 }
 
 // Get the form element
@@ -54,41 +69,35 @@ formHotel.onsubmit = async (e) => {
 
   // Get form data
   const formData = new FormData(formHotel);
-  console.log(formData.get("image_path"));
-
-  // Get admin ID (You need to implement the logic to retrieve the admin's ID)
-  const adminId = "user"; // Add logic to get the admin's ID here
-
-  // Check if admin already has a hotel
-  const adminHasHotelResult = await adminHasHotel(adminId);
-  if (adminHasHotelResult) {
-    errorNotification("You can only create one hotel.", 10);
-    // Enable the submit button
-    submitButton.disabled = false;
-    submitButton.innerHTML = `Add hotel`;
-    return;
-  }
 
   // Generate ID based on hotel city
   const hotelCity = formData.get("hotel_city");
   const cityId = hotelCity.substring(0, 3).toLowerCase(); // Get first three characters and convert to lowercase
 
-  // Upload file image
-  const image = formData.get("image_path");
-  const { data: uploadData, error: uploadError } = await supabase.storage
-    .from("hotels")
-    .upload("public/" + image.name, image, {
-      cacheControl: "3600",
-      upsert: false,
-    });
+  // Generate unique ID
+  const uniqueId = await generateUniqueID(cityId);
 
-  const image_data = uploadData;
+  // Get the current user's ID from user_info table
+  const { data: userData, error: userError } = await supabase
+    .from("user_info")
+    .select("id")
+    .eq("auth_user_id", supabase.auth.user().id);
+
+  if (userError) {
+    // Handle error
+    console.error("Error fetching user info:", userError);
+    return;
+  }
+
+  // Extract the user ID from the query result
+  const adminId = userData[0]?.id;
 
   // Insert data into the 'hotel' table
   const { data: hotelData, error: hotelError } = await supabase
     .from("hotel")
     .insert([
       {
+        id: uniqueId,
         hotel_name: formData.get("hotel_name"),
         hotel_location: formData.get("hotel_location"),
         hotel_city: hotelCity,
@@ -98,17 +107,16 @@ formHotel.onsubmit = async (e) => {
         price_range: formData.get("price_range"),
         hotel_rate: formData.get("hotel_rate"),
         admin_id: adminId,
-        image_path: image_data == null ? null : image_data.path,
       },
     ])
     .select();
 
-  // Handle success or error
-  if (uploadError == null) {
-    successNotification("Hotel added!", 10);
+  // Handle success or error for hotel insertion
+  if (hotelError === null) {
+    successNotification("Hotel added!");
   } else {
-    errorNotification("Something went wrong, please try again later.", 10);
-    console.log(uploadError);
+    errorNotification("Something went wrong, please try again later.");
+    console.error(hotelError);
   }
 
   // Reset the form
